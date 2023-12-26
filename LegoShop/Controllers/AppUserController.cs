@@ -27,7 +27,7 @@ namespace LegoShop.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(IFormCollection collection)
-        {
+        { 
             try
             {
                 return RedirectToAction(nameof(Index));
