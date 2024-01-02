@@ -25,11 +25,17 @@ namespace LegoShop.Data
             {
                 b.OwnsOne(x => x.Address);
 
+                b.Navigation(u => u.Address)
+                    .IsRequired();
+                
+
                 b.HasOne(u => u.UserRole)
                     .WithMany(r => r.Users)
                     .HasForeignKey(u => u.UserRoleId);
 
+
             });
+
 
             builder.Entity<Order>(b =>
             {
@@ -44,6 +50,19 @@ namespace LegoShop.Data
                 b.HasOne(o => o.Product)
                     .WithMany(p => p.Orders)
                     .HasForeignKey(o => o.ProductId);
+
+                b.Property(o => o.TotalPrice)
+                    .HasColumnType("decimal")
+                    .HasDefaultValue(0)
+                    .HasPrecision(2);
+            });
+
+            builder.Entity<Product>(b =>
+            {
+                b.Property(p => p.Price)
+                    .HasColumnType("decimal")
+                    .HasDefaultValue(0)
+                    .HasPrecision(2);
             });
 
         }
