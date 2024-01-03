@@ -1,13 +1,13 @@
 ﻿using LegoShop.Data.Entities;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace LegoShop.Data
 {
-    public class ApplicationDbContext : IdentityDbContext
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
-        public new DbSet<AppUser> Users { get; set; }
-        public new DbSet<UserRole> Roles { get; set; }
+        public DbSet<ApplicationUser> ApplicationUsers { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<OrderStatus> OrderStatuses { get; set; }
         public DbSet<Order> Orders { get; set; }
@@ -21,19 +21,12 @@ namespace LegoShop.Data
         {
             base.OnModelCreating(builder);
 
-            builder.Entity<AppUser>(b =>
+            builder.Entity<ApplicationUser>(b =>
             {
                 b.OwnsOne(x => x.Address);
 
                 b.Navigation(u => u.Address)
                     .IsRequired();
-                
-
-                b.HasOne(u => u.UserRole)
-                    .WithMany(r => r.Users)
-                    .HasForeignKey(u => u.UserRoleId);
-
-
             });
 
 
