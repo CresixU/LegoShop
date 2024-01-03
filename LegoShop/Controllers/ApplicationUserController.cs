@@ -1,14 +1,24 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using LegoShop.Data;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace LegoShop.Controllers
 {
     public class ApplicationUserController : Controller
     {
-        // GET: ApplicationUserController
-        public ActionResult Index()
+        private readonly ApplicationDbContext _context;
+
+        public ApplicationUserController(ApplicationDbContext context)
         {
-            return View();
+            _context = context;
+        }
+
+        // GET: ApplicationUserController
+        public async Task<IActionResult> Index()
+        {
+            var users = await _context.Users.ToListAsync();
+            return View(users);
         }
 
         // GET: ApplicationUserController/Details/5
