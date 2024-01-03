@@ -336,7 +336,7 @@ namespace LegoShop.Data.Migrations
                     b.HasDiscriminator().HasValue("UserRole");
                 });
 
-            modelBuilder.Entity("LegoShop.Data.Entities.AppUser", b =>
+            modelBuilder.Entity("LegoShop.Data.Entities.ApplicationUser", b =>
                 {
                     b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
 
@@ -345,7 +345,7 @@ namespace LegoShop.Data.Migrations
 
                     b.HasIndex("UserRoleId");
 
-                    b.HasDiscriminator().HasValue("AppUser");
+                    b.HasDiscriminator().HasValue("ApplicationUser");
                 });
 
             modelBuilder.Entity("LegoShop.Data.Entities.Order", b =>
@@ -362,7 +362,7 @@ namespace LegoShop.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("LegoShop.Data.Entities.AppUser", "User")
+                    b.HasOne("LegoShop.Data.Entities.ApplicationUser", "User")
                         .WithMany("Orders")
                         .HasForeignKey("UserId");
 
@@ -424,7 +424,7 @@ namespace LegoShop.Data.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("LegoShop.Data.Entities.AppUser", b =>
+            modelBuilder.Entity("LegoShop.Data.Entities.ApplicationUser", b =>
                 {
                     b.HasOne("LegoShop.Data.Entities.UserRole", "UserRole")
                         .WithMany("Users")
@@ -432,7 +432,7 @@ namespace LegoShop.Data.Migrations
 
                     b.OwnsOne("LegoShop.Data.Entities.Address", "Address", b1 =>
                         {
-                            b1.Property<string>("AppUserId")
+                            b1.Property<string>("ApplicationUserId")
                                 .HasColumnType("nvarchar(450)");
 
                             b1.Property<string>("City")
@@ -450,12 +450,12 @@ namespace LegoShop.Data.Migrations
                             b1.Property<string>("Street")
                                 .HasColumnType("nvarchar(max)");
 
-                            b1.HasKey("AppUserId");
+                            b1.HasKey("ApplicationUserId");
 
                             b1.ToTable("AspNetUsers");
 
                             b1.WithOwner()
-                                .HasForeignKey("AppUserId");
+                                .HasForeignKey("ApplicationUserId");
                         });
 
                     b.Navigation("Address")
@@ -479,7 +479,7 @@ namespace LegoShop.Data.Migrations
                     b.Navigation("Users");
                 });
 
-            modelBuilder.Entity("LegoShop.Data.Entities.AppUser", b =>
+            modelBuilder.Entity("LegoShop.Data.Entities.ApplicationUser", b =>
                 {
                     b.Navigation("Orders");
                 });
