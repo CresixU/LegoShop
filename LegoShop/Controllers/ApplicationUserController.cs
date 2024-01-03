@@ -1,29 +1,39 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using LegoShop.Data;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace LegoShop.Controllers
 {
-    public class AppUserController : Controller
+    public class ApplicationUserController : Controller
     {
-        // GET: AppUserController
-        public ActionResult Index()
+        private readonly ApplicationDbContext _context;
+
+        public ApplicationUserController(ApplicationDbContext context)
         {
-            return View();
+            _context = context;
         }
 
-        // GET: AppUserController/Details/5
+        // GET: ApplicationUserController
+        public async Task<IActionResult> Index()
+        {
+            var users = await _context.Users.ToListAsync();
+            return View(users);
+        }
+
+        // GET: ApplicationUserController/Details/5
         public ActionResult Details(int id)
         {
             return View();
         }
 
-        // GET: AppUserController/Create
+        // GET: ApplicationUserController/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: AppUserController/Create
+        // POST: ApplicationUserController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(IFormCollection collection)
@@ -38,13 +48,13 @@ namespace LegoShop.Controllers
             }
         }
 
-        // GET: AppUserController/Edit/5
+        // GET: ApplicationUserController/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: AppUserController/Edit/5
+        // POST: ApplicationUserController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, IFormCollection collection)
@@ -59,13 +69,13 @@ namespace LegoShop.Controllers
             }
         }
 
-        // GET: AppUserController/Delete/5
+        // GET: ApplicationUserController/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: AppUserController/Delete/5
+        // POST: ApplicationUserController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, IFormCollection collection)

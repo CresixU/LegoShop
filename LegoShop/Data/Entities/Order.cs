@@ -9,7 +9,7 @@
         public virtual Product Product { get; set; }
         public Guid ProductId { get; set; }
         
-        public virtual AppUser User { get; set; }
+        public virtual ApplicationUser User { get; set; }
         public string UserId { get; set; }
 
         public virtual OrderStatus OrderStatus { get; set; }
