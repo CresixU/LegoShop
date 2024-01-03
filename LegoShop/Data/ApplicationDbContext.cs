@@ -1,13 +1,13 @@
 ﻿using LegoShop.Data.Entities;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace LegoShop.Data
 {
-    public class ApplicationDbContext : IdentityDbContext
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
-        public new DbSet<AppUser> Users { get; set; }
-        public new DbSet<UserRole> Roles { get; set; }
+        public DbSet<ApplicationUser> ApplicationUsers { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<OrderStatus> OrderStatuses { get; set; }
         public DbSet<Order> Orders { get; set; }
@@ -21,15 +21,14 @@ namespace LegoShop.Data
         {
             base.OnModelCreating(builder);
 
-            builder.Entity<AppUser>(b =>
+            builder.Entity<ApplicationUser>(b =>
             {
                 b.OwnsOne(x => x.Address);
 
-                b.HasOne(u => u.UserRole)
-                    .WithMany(r => r.Users)
-                    .HasForeignKey(u => u.UserRoleId);
-
+                b.Navigation(u => u.Address)
+                    .IsRequired();
             });
+
 
             builder.Entity<Order>(b =>
             {
@@ -44,6 +43,19 @@ namespace LegoShop.Data
                 b.HasOne(o => o.Product)
                     .WithMany(p => p.Orders)
                     .HasForeignKey(o => o.ProductId);
+
+                b.Property(o => o.TotalPrice)
+                    .HasColumnType("decimal")
+                    .HasDefaultValue(0)
+                    .HasPrecision(2);
+            });
+
+            builder.Entity<Product>(b =>
+            {
+                b.Property(p => p.Price)
+                    .HasColumnType("decimal")
+                    .HasDefaultValue(0)
+                    .HasPrecision(2);
             });
 
         }
