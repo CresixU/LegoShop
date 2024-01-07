@@ -14,5 +14,12 @@ namespace LegoShop.Data.Seeders
 
             await seeder.ExecuteSeeds();
         }
+
+        public static void RegisterSeeds(this IServiceCollection serviceCollection)
+        {
+            serviceCollection.AddScoped<IEntitySeeder, OrderStatusesSeeder>();
+            serviceCollection.AddScoped<IEntitySeeder, AspNetRoleSeeder>();
+            serviceCollection.AddScoped<IEntitySeeder, ApplicationUserSeeder>();
+        }
     }
 }

@@ -1,6 +1,4 @@
-﻿using LegoShop.Data.Entities;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
 
 namespace LegoShop.Data.Seeders.Seeds
 {
@@ -16,9 +14,7 @@ namespace LegoShop.Data.Seeders.Seeds
 
         public async Task Seed()
         {
-            var x = _context.Roles.Count();
-            var y = _context.Roles.Any();
-            if (x <= 1)
+            if (_context.Roles.Count() <= 1)
             {
                 var data = new List<IdentityRole>()
                 {
