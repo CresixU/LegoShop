@@ -21,13 +21,23 @@ body {
   margin-bottom: 60px;
 }
 .nav-link {
-    transition: all 0.3s ease; /* Dodaje p³ynn¹ animacjê do efektów */
-    border: 2px solid transparent; /* Ustawia przezroczyste obramowanie, aby unikn¹æ przesuniêæ tekstu */
+    transition: color 0.4s ease, background-color 0.4s ease, box-shadow 0.4s ease, font-weight 0.4s ease; /* Ulepszona animacja dla ró¿nych w³aœciwoœci */
+    border: 2px solid transparent; /* Ustawia przezroczyste obramowanie */
+    display: inline-block; /* Zapewnia p³ynne przejœcie dla w³aœciwoœci font-weight */
 }
 
-   .nav-link:hover {
-        color: #0056b3; /* Zmienia kolor tekstu po najechaniu */
-        background-color: #f8f9fa; /* Zmienia kolor t³a */
-        border-color: #0056b3; /* Zmienia kolor obramowania */
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Dodaje cieñ */
+    .nav-link:hover {
+        color: orangered !important; /* Zmienia kolor tekstu na czerwony po najechaniu */
+        font-weight: bold; /* Pogrubienie tekstu */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Delikatnie wiêkszy cieñ dla lepszego efektu */
     }
+
+    /* Klasa aktywnego linku, np. gdy u¿ytkownik jest na stronie */
+    .nav-link.active {
+        background-color: #343a40; /* Ciemne t³o dla aktywnego linku */
+        color: white; /* Jasny kolor tekstu dla kontrastu */
+    }
+.header {
+    text-align: center;
+    font-weight: bold;
+}
