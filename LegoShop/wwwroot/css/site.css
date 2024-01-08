@@ -27,17 +27,57 @@ body {
 }
 
     .nav-link:hover {
-        color: orangered !important; /* Zmienia kolor tekstu na czerwony po najechaniu */
+        color: #ba9265 !important; /* Zmienia kolor tekstu na czerwony po najechaniu */
         font-weight: bold; /* Pogrubienie tekstu */
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Delikatnie wiêkszy cieñ dla lepszego efektu */
     }
 
     /* Klasa aktywnego linku, np. gdy u¿ytkownik jest na stronie */
     .nav-link.active {
-        background-color: #343a40; /* Ciemne t³o dla aktywnego linku */
+        background-color: #ba9265; /* Ciemne t³o dla aktywnego linku */
         color: white; /* Jasny kolor tekstu dla kontrastu */
     }
 .header {
     text-align: center;
     font-weight: bold;
+}
+.centered-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90px; /* Ustawia wysokoœæ kontenera na 100% widocznej czêœci okna przegl¹darki */
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 20px; /* Du¿e rozmiary paddingu dla wiêkszego przycisku */
+    font-size: 20px; /* Wiêkszy rozmiar czcionki */
+    text-decoration: none; /* Usuwa podkreœlenie */
+    color: white; /* Bia³y tekst */
+    background-color: #ba9265; /* Niebieskie t³o */
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.3s; /* Dodaje animacje do t³a i transformacji */
+}
+
+    .button:hover, .button:focus {
+        background-color: #c9a781; /* Zmienia kolor t³a przy najechaniu i fokusie */
+        transform: scale(1.02); /* Lekko powiêksza przycisk */
+        color: white;
+    }
+td {
+    text-align: center; /* Wyœrodkowanie tekstu w poziomie */
+    vertical-align: middle; /* Wyœrodkowanie tekstu w pionie */
+}
+th {
+    text-align: center; /* Wyœrodkowanie tekstu w poziomie */
+    vertical-align: middle; /* Wyœrodkowanie tekstu w pionie */
+}
+
+.small-square-image {
+    width: 100px; /* Ustawia szerokoœæ obrazka */
+    height: 100px; /* Ustawia wysokoœæ obrazka */
+    object-fit: cover; /* Zapewnia, ¿e obrazek bêdzie pokrywa³ ca³¹ przestrzeñ, zachowuj¹c proporcje */
+    display: block; /* Ustawienie jako blokowe pozwala na wyœrodkowanie obrazka */
+    margin: auto; /* Automatyczne marginesy dla wyœrodkowania w poziomie */
 }
