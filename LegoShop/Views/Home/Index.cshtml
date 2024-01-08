@@ -2,7 +2,65 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<head>
+    <meta charset="UTF-8">
+    <title>Moja Mozaika LEGO</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: darkseagreen;
+
+        }
+
+
+        #content {
+            background-color: transparent;
+            margin: auto;
+            width: 100%;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .image-section {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        .image-description {
+            width: 45%;
+        }
+
+            .image-description img {
+                max-width: 100%;
+                height: auto;
+                border-radius: 8px;
+            }
+
+        .description {
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div id="content">
+        <h1>
+            Witamy na naszej stronie poświęconej tworzeniu własnych obrazów z klocków LEGO!
+
+        </h1>
+<p>Założyliśmy tę stronę z miłości do twórczości, sztuki i nieskończonych możliwości, jakie oferują klocki LEGO. Od dziesięcioleci klocki LEGO stanowią nie tylko źródło zabawy dla dzieci, ale także stały się narzędziem dla artystów, projektantów i entuzjastów tworzenia na całym świecie.
+
+</p>
+
+        <div class="image-section">
+            <div class="image-description">
+                <p class="description">Obraz wgrany przez Ciebie</p>
+                <img src="https://i.imgur.com/cqMfF2V.png" alt="Przykładowa Mozaika LEGO 1">
+            </div>
+            <div class="image-description">
+                                <p class="description">Jak będzie wyglądać po złożeniu</p>
+                <img src="https://i.imgur.com/jS7gmnz.png" alt="Przykładowa Mozaika LEGO 2">
+            </div>
+        </div>
+    </div>
+</body>
