@@ -48,23 +48,38 @@ body {
     height: 90px; /* Ustawia wysokoœæ kontenera na 100% widocznej czêœci okna przegl¹darki */
 }
 
-.button {
-    display: inline-block;
-    padding: 10px 20px; /* Du¿e rozmiary paddingu dla wiêkszego przycisku */
-    font-size: 20px; /* Wiêkszy rozmiar czcionki */
-    text-decoration: none; /* Usuwa podkreœlenie */
-    color: white; /* Bia³y tekst */
-    background-color: #ba9265; /* Niebieskie t³o */
-    border: none;
-    border-radius: 5px;
-    transition: background-color 0.3s, transform 0.3s; /* Dodaje animacje do t³a i transformacji */
+.buttonproduct {
+    position: relative;
+    width: 180px;
+    height: 60px;
+    margin: 20px;
+    line-height: 55px;
+    letter-spacing: 2px;
+    text-decoration: none;
+    text-transform: uppercase;
+    text-align: center;
+    color: black;
+    transition-delay: var(--speed-normal);
+    border: 2px solid #c9a781;
 }
 
-    .button:hover, .button:focus {
-        background-color: #c9a781; /* Zmienia kolor t³a przy najechaniu i fokusie */
-        transform: scale(1.02); /* Lekko powiêksza przycisk */
+    .buttonproduct:hover, .button:focus {
+        position: relative;
+        width: 180px;
+        height: 60px;
+        margin: 20px;
+        line-height: 55px;
+        letter-spacing: 2px;
+        text-decoration: none;
+        text-transform: uppercase;
+        text-align: center;
         color: white;
+        transition-delay: var(--speed-normal);
+        border: 2px solid black;
+        background-color: #c9a781;
     }
+
+
 td {
     text-align: center; /* Wyœrodkowanie tekstu w poziomie */
     vertical-align: middle; /* Wyœrodkowanie tekstu w pionie */
@@ -81,3 +96,44 @@ th {
     display: block; /* Ustawienie jako blokowe pozwala na wyœrodkowanie obrazka */
     margin: auto; /* Automatyczne marginesy dla wyœrodkowania w poziomie */
 }
+/* CSS */
+.button-link {
+    position: relative;
+    width: 180px;
+    padding: 5px 12px;
+    line-height: 55px;
+    letter-spacing: 2px;
+    text-decoration: none;
+    text-transform: uppercase;
+    text-align: center;
+    color: black;
+    transition-delay: var(--speed-normal);
+    border: 2px solid;
+    border-color: green;
+    background-color: white;
+}
+
+    .button-link:hover {
+        background-color: #75bf5a; /* Kolor t³a przycisku przy najechaniu */
+        color: white;
+    }
+.button-link-two {
+    position: relative;
+    width: 180px;
+    padding: 5px 12px;
+    line-height: 55px;
+    letter-spacing: 2px;
+    text-decoration: none;
+    text-transform: uppercase;
+    text-align: center;
+    color: black;
+    transition-delay: var(--speed-normal);
+    border: 2px solid;
+    border-color: dimgray;
+    background-color: white;
+}
+
+    .button-link-two:hover {
+        background-color: darkgray; /* Kolor t³a przycisku przy najechaniu */
+        color: white;
+    }

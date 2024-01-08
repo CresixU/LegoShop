@@ -3,35 +3,36 @@
 @{
     ViewData["Title"] = "Index";
 }
+
 <div class="header">
 <h1>Stwórz swoją mozaikę z LEGO</h1>
 </div>
 <div class="centered-button">
-    <a class="button" asp-action="Create">Zacznij teraz!</a>
+    <a class="buttonproduct" asp-action="Create">Zacznij teraz!</a>
 </div>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Name)
+            Nazwa produktu
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Description)
+            Opis
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Price)
+             Cena
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.MosaicType)
+                Typ klocka
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.FrameSize)
+                Rozmiar ramki
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.FrameColor)
+                Kolor ramki
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ImageUrl)
+                Twój obrazek
             </th>
             <th></th>
         </tr>
@@ -57,13 +58,16 @@
             <td>
                 @Html.DisplayFor(modelItem => item.FrameColor)
             </td>
+
                 <td>
                     <img class="small-square-image" src="@item.ImageUrl" alt="Opis obrazka" />
                 </td>
 
             <td>
-                <a asp-action="CreateOrder" asp-route-id="@item.Id">Create Order</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a>
+                    <a asp-action="CreateOrder" asp-route-id="@item.Id" class="button-link">Kup produkt</a>
+
+                    <a asp-action="Details" asp-route-id="@item.Id" class="button-link-two">Szczegóły produktu</a>
+
             </td>
         </tr>
 }
