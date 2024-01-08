@@ -21,7 +21,7 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.RegisterSeeds();
 builder.Services.AddScoped<ISeedService, SeedService>();
-await builder.Services.ExecuteSeeds();
+//await builder.Services.ExecuteSeeds();
 
 var app = builder.Build();
 
