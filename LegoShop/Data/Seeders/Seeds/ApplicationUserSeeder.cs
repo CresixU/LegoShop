@@ -6,12 +6,10 @@ namespace LegoShop.Data.Seeders.Seeds
     public class ApplicationUserSeeder : IEntitySeeder
     {
         private readonly ApplicationDbContext _context;
-        private readonly UserManager<ApplicationUser> _userManager;
 
-        public ApplicationUserSeeder(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
+        public ApplicationUserSeeder(ApplicationDbContext context)
         {
             _context = context;
-            _userManager = userManager;
         }
 
         public async Task Seed()
@@ -39,9 +37,6 @@ namespace LegoShop.Data.Seeders.Seeds
                         Id = Guid.NewGuid().ToString()
                     }
                 };
-                await _userManager.AddToRoleAsync(users[0], "Admin");
-                await _userManager.AddToRoleAsync(users[1], "Moderator");
-
                 await _context.AddRangeAsync(users);
                 await _context.SaveChangesAsync();
             }

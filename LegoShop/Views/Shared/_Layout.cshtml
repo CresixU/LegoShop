@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@using LegoShop.Data.Entities;
+@using Microsoft.AspNetCore.Identity
+@inject UserManager<ApplicationUser> UserManager
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -28,14 +32,12 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Orders" asp-action="Index">Zamówienia</a>
                         </li>
+                        @User.Identity?.Name
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="OrderStatus" asp-action="Index">Sprawdź status</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="OrderStatus" asp-action="Index">Statusy zamowien</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="ApplicationUser" asp-action="Index">Użytkownicy</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="UserRoles" asp-action="Index">Uprawnienia i role</a>
                         </li>
                     </ul>
                     <partial name="_LoginPartial" />
