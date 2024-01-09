@@ -1,15 +1,18 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using LegoShop.Data.Entities;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 
 namespace LegoShop.Data.Seeders.Seeds
 {
     public class AspNetRoleSeeder : IEntitySeeder
     {
         private readonly ApplicationDbContext _context;
+        private readonly RoleManager<IdentityRole> _roleManager;
 
-        public AspNetRoleSeeder(ApplicationDbContext context)
+        public AspNetRoleSeeder(ApplicationDbContext context, RoleManager<IdentityRole> roleManager)
         {
-
             _context = context;
+            _roleManager = roleManager;
         }
 
         public async Task Seed()
@@ -27,6 +30,9 @@ namespace LegoShop.Data.Seeders.Seeds
                     },
                     new IdentityRole("User")
                 };
+
+                await _roleManager.CreateAsync(data[0]);
+                await _roleManager.CreateAsync(data[1]);
 
                 await _context.AddRangeAsync(data);
                 await _context.SaveChangesAsync();
