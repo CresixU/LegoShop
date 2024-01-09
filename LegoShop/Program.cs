@@ -1,7 +1,6 @@
 using LegoShop.Data;
 using LegoShop.Data.Entities;
 using LegoShop.Data.Seeders;
-using LegoShop.Data.Seeders.SeedService;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -19,9 +18,9 @@ builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.R
 
 builder.Services.AddControllersWithViews();
 
+await builder.Services.MigrateDatabaseAsync();
 builder.Services.RegisterSeeds();
-builder.Services.AddScoped<ISeedService, SeedService>();
-//await builder.Services.ExecuteSeeds();
+await builder.Services.ExecuteSeeds();
 
 var app = builder.Build();
 
