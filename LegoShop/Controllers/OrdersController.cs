@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using LegoShop.Data;
 using LegoShop.Data.Entities;
+using Microsoft.AspNetCore.Authorization;
 
 namespace LegoShop.Controllers
 {
+    [Authorize]
     public class OrdersController : Controller
     {
         private readonly ApplicationDbContext _context;

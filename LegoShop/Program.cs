@@ -1,5 +1,6 @@
 using LegoShop.Data;
 using LegoShop.Data.Entities;
+using LegoShop.Data.Seeders;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -12,9 +13,14 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
+    .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>();
 
 builder.Services.AddControllersWithViews();
+
+await builder.Services.MigrateDatabaseAsync();
+builder.Services.RegisterSeeds();
+await builder.Services.ExecuteSeeds();
 
 var app = builder.Build();
 

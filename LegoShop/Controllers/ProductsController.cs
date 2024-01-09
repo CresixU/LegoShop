@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using LegoShop.Data;
 using LegoShop.Data.Entities;
+using Microsoft.AspNetCore.Authorization;
 
 namespace LegoShop.Controllers
 {
+    [Authorize]
     public class ProductsController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -154,9 +151,59 @@ namespace LegoShop.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        // GET: Products/Delete/5
+        public async Task<IActionResult> CreateOrder(Guid? id)
+        {
+            if (id == null || _context.Products == null)
+            {
+                return NotFound();
+            }
+
+            var product = await _context.Products
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (product == null)
+            {
+                return NotFound();
+            }
+            return View(product);
+        }
+
+        // POST: Products/CreateOrder/5
+        [HttpPost, ActionName("CreateOrder")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> CreateOrderConfirmed(Guid id)
+        {
+            if(_context.Products is null)
+            {
+                return Problem("There is no products");
+            }
+            var product = await _context.Products.FindAsync(id);
+            if (product is null)
+                return Problem("Product not found");
+
+            var currentUser = await _context.Users
+                .Where(u => u.Email == User.Identity.Name)
+                .FirstOrDefaultAsync();
+
+            var order = new Order
+            {
+                Product = product,
+                Id = Guid.NewGuid(),
+                OrderDate = DateTime.Now,
+                OrderStatus = _context.OrderStatuses.Where(os => os.Name == "New").FirstOrDefault(),
+                User = currentUser
+            };
+            order.TotalPrice = order.Product.Price;
+
+            _context.Orders.Add(order);
+            _context.SaveChanges();
+
+            return RedirectToAction(nameof(Index));
+        }
+
         private bool ProductExists(Guid id)
         {
-          return _context.Products.Any(e => e.Id == id);
+            return _context.Products.Any(e => e.Id == id);
         }
     }
 }

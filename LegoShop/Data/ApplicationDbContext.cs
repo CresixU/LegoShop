@@ -13,8 +13,16 @@ namespace LegoShop.Data
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
-        {
-        }
+        { }
+
+        public async Task<int> ExecuteRawSqlAsync(string sqlQuery)
+            => await Database.ExecuteSqlRawAsync(sqlQuery);
+
+        public async Task BeginTranstaction()
+            => await Database.BeginTransactionAsync();
+
+        public async Task CommitTransaction()
+            => await Database.CommitTransactionAsync();
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -48,6 +56,7 @@ namespace LegoShop.Data
                     .HasDefaultValue(0)
                     .HasPrecision(2);
             });
+
 
             builder.Entity<Product>(b =>
             {
