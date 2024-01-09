@@ -18,8 +18,13 @@ namespace LegoShop.Data.Seeders.Seeds
             {
                 var data = new List<IdentityRole>()
                 {
-                    new IdentityRole("Admin"),
-                    new IdentityRole("Moderator"),
+                    new IdentityRole() 
+                    {
+                        Name = "Admin",
+                        NormalizedName = "ADMIN",
+                        ConcurrencyStamp = Guid.NewGuid().ToString(),
+                        Id = Guid.NewGuid().ToString()
+                    },
                     new IdentityRole("User")
                 };
 

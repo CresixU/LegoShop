@@ -16,28 +16,22 @@ namespace LegoShop.Data.Seeders.Seeds
         {
             if(!_context.Users.Any()) 
             {
-                var users = new List<ApplicationUser>()
+                var user = new ApplicationUser()
                 {
-                    new ApplicationUser()
-                    {
-                        UserName = "admin@test.pl",
-                        PasswordHash = "AQAAAAIAAYagAAAAEGwXioQ4VrHbqcEegfybG25Gr9Vypqy0Hzqjteoz1k2uEWPRhfl6SXYH+Cp/0v7mWw==",
-                        Email = "admin@test.pl",
-                        EmailConfirmed = true,
-                        Address = new Address(),
-                        Id = Guid.NewGuid().ToString()
-                    },
-                    new ApplicationUser()
-                    {
-                        UserName = "moderator@test.pl",
-                        PasswordHash = "AQAAAAIAAYagAAAAEGwXioQ4VrHbqcEegfybG25Gr9Vypqy0Hzqjteoz1k2uEWPRhfl6SXYH+Cp/0v7mWw==",
-                        Email = "moderator@test.pl",
-                        EmailConfirmed = true,
-                        Address = new Address(),
-                        Id = Guid.NewGuid().ToString()
-                    }
+                    UserName = "admin@test.pl",
+                    NormalizedUserName = "ADMIN@TEST.PL",
+                    Email = "admin@test.pl",
+                    NormalizedEmail = "ADMIN@TEST.PL",
+                    EmailConfirmed = true,
+                    LockoutEnabled = true,
+                    Address = new Address(),
+                    Id = Guid.NewGuid().ToString()
                 };
-                await _context.AddRangeAsync(users);
+
+                user.PasswordHash = new PasswordHasher<ApplicationUser>()
+                    .HashPassword(user, "Password12@");
+
+                await _context.AddAsync(user);
                 await _context.SaveChangesAsync();
             }
         }

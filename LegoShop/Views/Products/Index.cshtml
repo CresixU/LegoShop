@@ -13,32 +13,19 @@
 <table class="table">
     <thead>
         <tr>
-            <th>
-            Nazwa produktu
-            </th>
-            <th>
-            Opis
-            </th>
-            <th>
-             Cena
-            </th>
-            <th>
-                Typ klocka
-            </th>
-            <th>
-                Rozmiar ramki
-            </th>
-            <th>
-                Kolor ramki
-            </th>
-            <th>
-                Twój obrazek
-            </th>
+            <th>Nazwa produktu</th>
+            <th>Opis</th>
+            <th>Cena</th>
+            <th>Typ klocka</th>
+            <th>Rozmiar ramki</th>
+            <th>Kolor ramki</th>
+            <th>Twój obrazek</th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+@foreach (var item in Model)
+{
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Name)
@@ -58,16 +45,12 @@
             <td>
                 @Html.DisplayFor(modelItem => item.FrameColor)
             </td>
-
-                <td>
-                    <img class="small-square-image" src="@item.ImageUrl" alt="Opis obrazka" />
-                </td>
-
             <td>
-                    <a asp-action="CreateOrder" asp-route-id="@item.Id" class="button-link">Kup produkt</a>
-
-                    <a asp-action="Details" asp-route-id="@item.Id" class="button-link-two">Szczegóły produktu</a>
-
+                <img class="small-square-image" src="@item.ImageUrl" alt="Opis obrazka" />
+            </td>
+            <td>
+                <a asp-action="CreateOrder" asp-route-id="@item.Id" class="button-link">Kup produkt</a>
+                <a asp-action="Details" asp-route-id="@item.Id" class="button-link-two">Szczegóły produktu</a>
             </td>
         </tr>
 }

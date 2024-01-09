@@ -1,7 +1,6 @@
 ﻿using LegoShop.Data;
 using LegoShop.Data.Entities;
-using LegoShop.Models.User;
-using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -9,6 +8,7 @@ using System.Linq;
 
 namespace LegoShop.Controllers
 {
+    [Authorize]
     public class ApplicationUserController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -30,20 +30,9 @@ namespace LegoShop.Controllers
         // GET: ApplicationUserController/Details/5
         public async Task<IActionResult> Details(string id)
         {
-            var user = await _userManager.FindByIdAsync(id);
+            var user = await _context.Users.FindAsync(id);
 
-            var roles = await _userManager.GetRolesAsync(user);
-
-            var result = new UserDetailsDto()
-            {
-                UserName = user.UserName,
-                Email = user.Email,
-                PhoneNumber = user.PhoneNumber,
-                Id = user.Id,
-                RoleName = string.Join(", ", roles)
-            };
-
-            return View(result);
+            return View(user);
         }
 
         // GET: ApplicationUserController/Create
