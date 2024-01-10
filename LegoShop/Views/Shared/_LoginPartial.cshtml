@@ -7,13 +7,16 @@
 @if (SignInManager.IsSignedIn(User))
 {
     <li class="nav-item">
-        <a  class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Witaj @User.Identity?.Name!</a>
+        <a  class="nav-link text-dark" asp-area="Identity" asp-page="/Accoun/* Comments can contain keywords such as
+   for and while without generating errors. */t/Manage/Index" title="Manage">Witaj @User.Identity?.Name!</a>
     </li>
-    <li class="nav-item">
+        /* WYLOGUJ SIĘ */
+    <li class="nav-item"> 
         <form  class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
             <button  type="submit" class="nav-link btn btn-link text-dark">Wyloguj się</button>
         </form>
     </li>
+        /* WYLOGUJ SIĘ */
 }
 else
 {

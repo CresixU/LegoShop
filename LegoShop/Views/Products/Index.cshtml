@@ -7,8 +7,9 @@
 <div class="header">
 <h1>Stwórz swoją mozaikę z LEGO</h1>
 </div>
+
 <div class="centered-button">
-    <a class="buttonproduct" asp-action="Create">Zacznij teraz!</a>
+    <a class="buttontest" asp-action="Create">Zacznij teraz!</a>
 </div>
 <table class="table">
     <thead>
@@ -20,6 +21,7 @@
             <th>Rozmiar ramki</th>
             <th>Kolor ramki</th>
             <th>Twój obrazek</th>
+            <th></th>
             <th></th>
         </tr>
     </thead>
@@ -50,7 +52,9 @@
             </td>
             <td>
                 <a asp-action="CreateOrder" asp-route-id="@item.Id" class="button-link">Kup produkt</a>
-                <a asp-action="Details" asp-route-id="@item.Id" class="button-link-two">Szczegóły produktu</a>
+                </td>
+                <td>
+                <a asp-action="Details" asp-route-id="@item.Id" class="button-link-two">Szczegóły</a>
             </td>
         </tr>
 }
