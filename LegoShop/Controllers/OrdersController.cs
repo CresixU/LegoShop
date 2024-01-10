@@ -8,6 +8,8 @@ using Microsoft.EntityFrameworkCore;
 using LegoShop.Data;
 using LegoShop.Data.Entities;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore.Query;
 
 namespace LegoShop.Controllers
 {
@@ -15,17 +17,33 @@ namespace LegoShop.Controllers
     public class OrdersController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly UserManager<ApplicationUser> _userManager;
 
-        public OrdersController(ApplicationDbContext context)
+        public OrdersController(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         // GET: Orders
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.Orders.Include(o => o.OrderStatus).Include(o => o.Product).Include(o => o.User);
-            return View(await applicationDbContext.ToListAsync());
+            var user = await _userManager.FindByNameAsync(User.Identity.Name);
+
+            var query = _context.Orders
+                .Include(o => o.OrderStatus)
+                .Include(o => o.Product)
+                .Where(o => o.User.Id == user.Id);
+
+            if (User.IsInRole("Admin"))
+            {
+                query = _context.Orders
+                .Include(o => o.OrderStatus)
+                .Include(o => o.Product)
+                .Include(o => o.User);
+            }
+
+            return View(await query.ToListAsync());
         }
 
         // GET: Orders/Details/5
@@ -91,6 +109,10 @@ namespace LegoShop.Controllers
             {
                 return NotFound();
             }
+
+            if (!await IsCurrentUserOwnerOrAdmin(order))
+                return NotFound();
+
             ViewData["OrderStatusId"] = new SelectList(_context.OrderStatuses, "Id", "Id", order.OrderStatusId);
             ViewData["ProductId"] = new SelectList(_context.Products, "Id", "Id", order.ProductId);
             ViewData["UserId"] = new SelectList(_context.Users, "Id", "Id", order.UserId);
@@ -108,6 +130,9 @@ namespace LegoShop.Controllers
             {
                 return NotFound();
             }
+
+            if (!await IsCurrentUserOwnerOrAdmin(order))
+                return NotFound();
 
             if (ModelState.IsValid)
             {
@@ -148,6 +173,10 @@ namespace LegoShop.Controllers
                 .Include(o => o.Product)
                 .Include(o => o.User)
                 .FirstOrDefaultAsync(m => m.Id == id);
+
+            if (!await IsCurrentUserOwnerOrAdmin(order))
+                return NotFound();
+
             if (order == null)
             {
                 return NotFound();
@@ -170,14 +199,26 @@ namespace LegoShop.Controllers
             {
                 _context.Orders.Remove(order);
             }
-            
+
+            if (!await IsCurrentUserOwnerOrAdmin(order))
+                return NotFound();
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool OrderExists(Guid id)
         {
-          return _context.Orders.Any(e => e.Id == id);
+            return _context.Orders.Any(e => e.Id == id);
+        }
+
+        private async Task<bool> IsCurrentUserOwnerOrAdmin(Order order)
+        {
+            var isAdmin = User.IsInRole("Admin");
+            var user = await _userManager.FindByNameAsync(User.Identity.Name);
+            var isOwner = order.UserId == user.Id;
+
+            return isAdmin || isOwner;
         }
     }
 }

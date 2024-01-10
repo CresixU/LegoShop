@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace LegoShop.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Admin")]
     public class OrderStatusController : Controller
     {
         private readonly ApplicationDbContext _context;
