@@ -8,7 +8,7 @@ using System.Linq;
 
 namespace LegoShop.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Admin")]
     public class ApplicationUserController : Controller
     {
         private readonly ApplicationDbContext _context;
