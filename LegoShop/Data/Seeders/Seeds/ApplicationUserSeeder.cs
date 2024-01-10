@@ -6,10 +6,12 @@ namespace LegoShop.Data.Seeders.Seeds
     public class ApplicationUserSeeder : IEntitySeeder
     {
         private readonly ApplicationDbContext _context;
+        private readonly UserManager<ApplicationUser> _userManager;
 
-        public ApplicationUserSeeder(ApplicationDbContext context)
+        public ApplicationUserSeeder(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         public async Task Seed()
@@ -32,6 +34,8 @@ namespace LegoShop.Data.Seeders.Seeds
                     .HashPassword(user, "Password12@");
 
                 await _context.AddAsync(user);
+                await _context.SaveChangesAsync();
+                await _userManager.AddToRoleAsync(user, "Admin");
                 await _context.SaveChangesAsync();
             }
         }
