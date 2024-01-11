@@ -21,6 +21,7 @@ builder.Services.AddControllersWithViews();
 
 await builder.Services.MigrateDatabaseAsync();
 builder.Services.RegisterSeeds();
+await builder.Services.ExecuteSeeds();
 
 var app = builder.Build();
 
