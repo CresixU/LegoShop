@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using LegoShop.Data;
 using LegoShop.Data.Entities;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 
 namespace LegoShop.Controllers
 {
@@ -10,16 +11,31 @@ namespace LegoShop.Controllers
     public class ProductsController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly UserManager<ApplicationUser> _userManager;
 
-        public ProductsController(ApplicationDbContext context)
+        public ProductsController(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         // GET: Products
         public async Task<IActionResult> Index()
         {
-              return View(await _context.Products.ToListAsync());
+            IQueryable<Product> products;
+
+            var user = await _userManager.FindByNameAsync(User.Identity.Name);
+
+            
+            if(!User.IsInRole("Admin"))
+                products = _context.Orders
+                    .Include(o => o.Product)
+                    .Where(o => o.UserId == user.Id)
+                    .Select(o => o.Product);
+            else
+                products = _context.Products;
+
+            return View(await products.OrderBy(p => p.Name).ToListAsync());
         }
 
         // GET: Products/Details/5
