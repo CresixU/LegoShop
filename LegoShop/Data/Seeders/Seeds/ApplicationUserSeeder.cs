@@ -16,7 +16,7 @@ namespace LegoShop.Data.Seeders.Seeds
 
         public async Task Seed()
         {
-            if(!_context.Users.Any()) 
+            if(await _context.Database.CanConnectAsync() && !_context.Users.Any()) 
             {
                 var user = new ApplicationUser()
                 {

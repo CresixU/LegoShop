@@ -155,6 +155,24 @@ namespace LegoShop.Controllers
             return View(order);
         }
 
+        public async Task<IActionResult> CancelOrder(Guid id)
+        {
+            if (_context.Orders == null)
+            {
+                return NotFound();
+            }
+            var order = await _context.Orders
+                .Include(o => o.OrderStatus)
+                .FirstOrDefaultAsync(o => o.Id == id);
+
+            var canceledOrderStatus = await _context.OrderStatuses
+                .FirstOrDefaultAsync(o => o.ConstId == 7);
+
+            order.OrderStatus = canceledOrderStatus;
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+
         // GET: Orders/Delete/5
         public async Task<IActionResult> Delete(Guid? id)
         {

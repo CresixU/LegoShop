@@ -17,7 +17,7 @@ namespace LegoShop.Data.Seeders.Seeds
 
         public async Task Seed()
         {
-            if (_context.Roles.Count() <= 1)
+            if (await _context.Database.CanConnectAsync() && await _context.Roles.CountAsync() <= 1)
             {
                 var data = new List<IdentityRole>()
                 {
@@ -28,11 +28,14 @@ namespace LegoShop.Data.Seeders.Seeds
                         ConcurrencyStamp = Guid.NewGuid().ToString(),
                         Id = Guid.NewGuid().ToString()
                     },
-                    new IdentityRole("User")
+                    new IdentityRole()
+                    {
+                        Name = "User",
+                        NormalizedName = "USER",
+                        ConcurrencyStamp = Guid.NewGuid().ToString(),
+                        Id = Guid.NewGuid().ToString()
+                    }
                 };
-
-                await _roleManager.CreateAsync(data[0]);
-                await _roleManager.CreateAsync(data[1]);
 
                 await _context.AddRangeAsync(data);
                 await _context.SaveChangesAsync();
