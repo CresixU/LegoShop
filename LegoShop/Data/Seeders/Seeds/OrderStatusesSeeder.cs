@@ -13,17 +13,17 @@ namespace LegoShop.Data.Seeders.Seeds
 
         public async Task Seed()
         {
-            if (!_context.OrderStatuses.Any())
+            if (await _context.Database.CanConnectAsync() && !_context.OrderStatuses.Any())
             {
                 var data = new List<OrderStatus>()
                 {
-                    new OrderStatus() { ConstId = 1, Name = "New" },
-                    new OrderStatus() { ConstId = 2, Name = "Payment recived" },
+                    new OrderStatus() { ConstId = 1, Name = "New", IsImmutable = true },
+                    new OrderStatus() { ConstId = 2, Name = "Payment recived"},
                     new OrderStatus() { ConstId = 3, Name = "Payment failed"},
-                    new OrderStatus() { ConstId = 4, Name = "In progress" },
-                    new OrderStatus() { ConstId = 5, Name = "Completed"},
-                    new OrderStatus() { ConstId = 6, Name = "Closed"},
-                    new OrderStatus() { ConstId = 7, Name = "Canceled"}
+                    new OrderStatus() { ConstId = 4, Name = "In progress", IsImmutable = true },
+                    new OrderStatus() { ConstId = 5, Name = "Completed", IsImmutable = true},
+                    new OrderStatus() { ConstId = 6, Name = "Closed", IsImmutable = true},
+                    new OrderStatus() { ConstId = 7, Name = "Canceled", IsImmutable = true}
                 };
 
                 await _context.AddRangeAsync(data);

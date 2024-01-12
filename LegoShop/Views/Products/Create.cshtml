@@ -18,34 +18,48 @@
                 <span asp-validation-for="Name" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Description" class="control-label"></label>
-                <input asp-for="Description" class="form-control" />
-                <span asp-validation-for="Description" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Price" class="control-label"></label>
-                <input asp-for="Price" class="form-control" />
-                <span asp-validation-for="Price" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <label asp-for="MosaicType" class="control-label"></label>
-                <input asp-for="MosaicType" class="form-control" />
+                <select asp-for="MosaicType" class="form-control">
+                    <option value="Round">Round</option>
+                    <option value="Square">Square</option>
+                    <option value="Hexadecimal">Hexadecimal</option>
+                </select>
                 <span asp-validation-for="MosaicType" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="FrameSize" class="control-label"></label>
-                <input asp-for="FrameSize" class="form-control" />
+                <select asp-for="FrameSize" class="form-control">
+                    <option value="Small">Small 30x30cm</option>
+                    <option value="Medium">Medium 45x45cm</option>
+                    <option value="Big">Big 60x60cm</option>
+                </select>
                 <span asp-validation-for="FrameSize" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="FrameColor" class="control-label"></label>
-                <input asp-for="FrameColor" class="form-control" />
+                <select asp-for="FrameColor" class="form-control">
+                    <option value="Red">Red</option>
+                    <option value="Green">Green</option>
+                    <option value="Blue">Blue</option>
+                    <option value="Yellow">Yellow</option>
+                    <option value="White">White</option>
+                    <option value="Black">Black</option>
+                    <option value="Brown">Brown</option>
+                </select>
                 <span asp-validation-for="FrameColor" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="ImageUrl" class="control-label"></label>
                 <input asp-for="ImageUrl" class="form-control" />
                 <span asp-validation-for="ImageUrl" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <textarea asp-for="Description" class="form-control"></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div>
+                <p>Price: <span id="price"></span> </p>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
@@ -60,4 +74,5 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    
 }

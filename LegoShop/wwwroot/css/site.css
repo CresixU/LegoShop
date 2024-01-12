@@ -1,4 +1,4 @@
-html {
+ï»¿html {
   font-size: 14px;
 }
 
@@ -6,10 +6,6 @@ html {
   html {
     font-size: 16px;
   }
-}
-
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
 html {
@@ -20,47 +16,50 @@ html {
 body {
   margin-bottom: 60px;
 }
+/*PASEK NAWIGACJI*/
 .nav-link {
-    transition: color 0.4s ease, background-color 0.4s ease, box-shadow 0.4s ease, font-weight 0.4s ease; /* Ulepszona animacja dla ró¿nych w³aœciwoœci */
-    border: 2px solid transparent; /* Ustawia przezroczyste obramowanie */
-    display: inline-block; /* Zapewnia p³ynne przejœcie dla w³aœciwoœci font-weight */
+    border: 2px solid transparent;
+    display: inline-flex; /* Pozwala na stosowanie wÅ‚aÅ›ciwoÅ›ci flex, ale zachowuje zachowanie inline */
+    align-items: center; /* Dodane, jeÅ›li chcesz wyÅ›rodkowaÄ‡ tekst/link wewnÄ…trz */
 }
-
     .nav-link:hover {
-        color: #ba9265 !important; /* Zmienia kolor tekstu na czerwony po najechaniu */
+        color: #b83038 !important; /* Zmienia kolor tekstu na czerwony po najechaniu */
         font-weight: bold; /* Pogrubienie tekstu */
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Delikatnie wiêkszy cieñ dla lepszego efektu */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Delikatnie wiÄ™kszy cieÅ„ dla lepszego efektu */
     }
-
-    /* Klasa aktywnego linku, np. gdy u¿ytkownik jest na stronie */
-    .nav-link.active {
-        background-color: #ba9265; /* Ciemne t³o dla aktywnego linku */
-        color: white; /* Jasny kolor tekstu dla kontrastu */
+    .nav-link.btn.btn-link.text-dark {
+        color: darkred !important; /* Zmienia kolor tekstu na czerwony */
+        font-weight: bold;
     }
+/*PASEK NAWIGACJI*/
 .header {
     text-align: center;
     font-weight: bold;
 }
+/*ZACZNIJ TERAZ*/
 .centered-button {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 90px; /* Ustawia wysokoœæ kontenera na 100% widocznej czêœci okna przegl¹darki */
+    height: 80px; /* Ustawia wysokoÅ›Ä‡ kontenera na 100% widocznej czÄ™Å›ci okna przeglÄ…darki */
+    margin-bottom: 25px;
 }
+
+/* zacznij teraz v.1
 
 .buttonproduct {
     position: relative;
     width: 180px;
     height: 60px;
-    margin: 20px;
+    margin: 40px;
     line-height: 55px;
     letter-spacing: 2px;
     text-decoration: none;
     text-transform: uppercase;
     text-align: center;
     color: black;
-    transition-delay: var(--speed-normal);
-    border: 2px solid #c9a781;
+    border: 2px solid;
+    border-color: darkgoldenrod;
 }
 
     .buttonproduct:hover, .button:focus {
@@ -78,62 +77,123 @@ body {
         border: 2px solid black;
         background-color: #c9a781;
     }
-
+*/
 
 td {
-    text-align: center; /* Wyœrodkowanie tekstu w poziomie */
-    vertical-align: middle; /* Wyœrodkowanie tekstu w pionie */
+    text-align: center; /* WyÅ›rodkowanie tekstu w poziomie */
+    vertical-align: middle; /* WyÅ›rodkowanie tekstu w pionie */
 }
 th {
-    text-align: center; /* Wyœrodkowanie tekstu w poziomie */
-    vertical-align: middle; /* Wyœrodkowanie tekstu w pionie */
+    text-align: center; /* WyÅ›rodkowanie tekstu w poziomie */
+    vertical-align: middle; /* WyÅ›rodkowanie tekstu w pionie */
 }
 
 .small-square-image {
-    width: 100px; /* Ustawia szerokoœæ obrazka */
-    height: 100px; /* Ustawia wysokoœæ obrazka */
-    object-fit: cover; /* Zapewnia, ¿e obrazek bêdzie pokrywa³ ca³¹ przestrzeñ, zachowuj¹c proporcje */
-    display: block; /* Ustawienie jako blokowe pozwala na wyœrodkowanie obrazka */
-    margin: auto; /* Automatyczne marginesy dla wyœrodkowania w poziomie */
+    width: 100px; /* Ustawia szerokoÅ›Ä‡ obrazka */
+    height: 100px; /* Ustawia wysokoÅ›Ä‡ obrazka */
+    object-fit: cover; /* Zapewnia, Å¼e obrazek bÄ™dzie pokrywaÅ‚ caÅ‚Ä… przestrzeÅ„, zachowujÄ…c proporcje */
+    display: block; /* Ustawienie jako blokowe pozwala na wyÅ›rodkowanie obrazka */
+    margin: auto; /* Automatyczne marginesy dla wyÅ›rodkowania w poziomie */
 }
-/* CSS */
+/* Kup produkt */
 .button-link {
-    position: relative;
+    --kolor1: #701e24;
+    --kolor2: #d15861;
+    --kolor3: #2e0c0e;
+    cursor: pointer;
     width: 180px;
-    padding: 5px 12px;
-    line-height: 55px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    font-size: 1.125em;
+    font-weight: 500;
     letter-spacing: 2px;
-    text-decoration: none;
+    color: white;
+    background: var(--kolor1); /*1*/
+    border: 2px solid var(--kolor2); /*2*/
+    box-shadow: 0 8px 0 var(--kolor2); /*2*/
+    transform: skew(-10deg);
+    transition: all .1s ease;
+    filter: drop-shadow(0 15px 20px var(--kolor3)); /*3*/
     text-transform: uppercase;
-    text-align: center;
-    color: black;
-    transition-delay: var(--speed-normal);
-    border: 2px solid;
-    border-color: green;
-    background-color: white;
+    text-decoration: none;
+    align-items: center; /* WyÅ›rodkowanie w pionie */
 }
 
     .button-link:hover {
-        background-color: #75bf5a; /* Kolor t³a przycisku przy najechaniu */
+        letter-spacing: 2px;
+        transform: skew(-10deg) translateY(8px);
+        box-shadow: 0 0 0 var(--kolor3); /*3*/
         color: white;
     }
+/* SzczegÃ³Å‚y produktu */
 .button-link-two {
-    position: relative;
-    width: 180px;
-    padding: 5px 12px;
-    line-height: 55px;
+    --kolor1: #701e24;
+    --kolor2: #d15861;
+    --kolor3: #2e0c0e;
+    cursor: pointer;
+    width: 155px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    font-size: 1.125em;
+    font-weight: 500;
     letter-spacing: 2px;
-    text-decoration: none;
+    color: white;
+    background: var(--kolor1); /*1*/
+    border: 2px solid var(--kolor2); /*2*/
+    box-shadow: 0 8px 0 var(--kolor2); /*2*/
+    transform: skew(-10deg);
+    transition: all .1s ease;
+    filter: drop-shadow(0 15px 20px var(--kolor3)); /*3*/
     text-transform: uppercase;
-    text-align: center;
-    color: black;
-    transition-delay: var(--speed-normal);
-    border: 2px solid;
-    border-color: dimgray;
-    background-color: white;
+    text-decoration: none;
+    align-items: center; /* WyÅ›rodkowanie w pionie */
 }
 
     .button-link-two:hover {
-        background-color: darkgray; /* Kolor t³a przycisku przy najechaniu */
+        letter-spacing: 2px;
+        transform: skew(-10deg) translateY(8px);
+        box-shadow: 0 0 0 var(--kolor3); /*3*/
         color: white;
     }
+
+.buttontest {
+    --kolor1: #701e24;
+    --kolor2: #d15861;
+    --kolor3: #2e0c0e;
+    cursor: pointer;
+    width: 210px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    font-size: 1.125em;
+    font-weight: 500;
+    letter-spacing: 2px;
+    color: white;
+    background: var(--kolor1); /*1*/
+    border: 2px solid var(--kolor2); /*2*/
+    box-shadow: 0 8px 0 var(--kolor2); /*2*/
+    transform: skew(-10deg);
+    transition: all .1s ease;
+    filter: drop-shadow(0 15px 20px var(--kolor3)); /*3*/
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+    .buttontest:hover, .button:focus {
+        letter-spacing: 2px;
+        transform: skew(-10deg) translateY(8px);
+        box-shadow: 0 0 0 var(--kolor3); /*3*/
+        color: white;
+    }
+.logo-link {
+    margin-top: 0px; /* Margines gÃ³rny */
+    margin-bottom: 5px; /* Margines dolny */
+    margin-left: 100px; /* Margines lewy */
+    margin-right: 10px; /* Margines prawy */
+}

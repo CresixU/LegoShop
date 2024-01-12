@@ -1,6 +1,7 @@
 using LegoShop.Data;
 using LegoShop.Data.Entities;
 using LegoShop.Data.Seeders;
+using LegoShop.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 

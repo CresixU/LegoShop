@@ -56,6 +56,12 @@ namespace LegoShop.Controllers
             if (ModelState.IsValid)
             {
                 product.Id = Guid.NewGuid();
+                var defaultPrice = 50M;
+                if (product.FrameSize == "Medium")
+                    defaultPrice = 75M;
+                else if (product.FrameSize == "Big")
+                    defaultPrice = 100M;
+                product.Price = defaultPrice;
                 _context.Add(product);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
