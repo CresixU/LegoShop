@@ -62,6 +62,7 @@ namespace LegoShop.Controllers
                 else if (product.FrameSize == "Big")
                     defaultPrice = 100M;
                 product.Price = defaultPrice;
+
                 _context.Add(product);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
