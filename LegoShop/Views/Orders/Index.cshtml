@@ -53,13 +53,13 @@
                 @Html.DisplayFor(modelItem => item.OrderStatus.Name)
             </td>
             <td>
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a>
                 @if (item.OrderStatus.ConstId != 7)
                 {
                     <a asp-action="CancelOrder" asp-route-id="@item.Id">CancelOrder</a>
                 }
                 @if(User.IsInRole("Admin"))
                 {
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a>
                     <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
                     <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
                 }
