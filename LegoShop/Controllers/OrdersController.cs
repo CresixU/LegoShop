@@ -39,7 +39,10 @@ namespace LegoShop.Controllers
                 .Include(o => o.User);
             }
 
-            var result = await query.ToListAsync();
+            var result = await query
+                .OrderBy(o => o.OrderStatus.ConstId)
+                .ThenBy(o => o.OrderDate)
+                .ToListAsync();
 
             return View(result);
         }
