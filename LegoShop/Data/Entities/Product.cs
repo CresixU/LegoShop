@@ -1,8 +1,11 @@
-﻿namespace LegoShop.Data.Entities
+﻿using System.ComponentModel;
+
+namespace LegoShop.Data.Entities
 {
     public class Product
     {
         public Guid Id { get; set; }
+        [DisplayName("Nazwa produktu")]
         public string Name { get; set; }
         public string Description { get; set; }
         public decimal Price { get; set; }
