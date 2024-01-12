@@ -4,9 +4,9 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
+<h1>Stwórz</h1>
 
-<h4>Product</h4>
+<h4>Nowy produkt</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -53,14 +53,44 @@
                 <input asp-for="ImageUrl" class="form-control" />
                 <span asp-validation-for="ImageUrl" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group mb-2">
                 <label asp-for="Description" class="control-label"></label>
                 <textarea asp-for="Description" class="form-control"></textarea>
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
             <div>
-                <p>Price: <span id="price"></span> </p>
+                <p><span id="price"></span></p>
             </div>
+            <script>
+                // Pobierz elementy DOM
+                var frameSizeSelect = document.querySelector('#FrameSize');
+                var priceSpan = document.querySelector('#price');
+
+                // Utwórz mapowanie wartości na ceny
+                var priceMap = {
+                    'Small': 50,
+                    'Medium': 75,
+                    'Big': 100
+                };
+
+                // Funkcja do aktualizacji ceny po wyborze opcji
+                function updatePrice() {
+                    var selectedValue = frameSizeSelect.value;
+                    var price = priceMap[selectedValue];
+
+                    if (price !== undefined) {
+                        priceSpan.textContent = 'Cena: ' + price + ' PLN';
+                    } else {
+                        priceSpan.textContent = ''; // Jeśli wartość nie pasuje do mapowania, wyczyść cenę
+                    }
+                }
+
+                // Nasłuchuj zmiany w polu wyboru i aktualizuj cenę
+                frameSizeSelect.addEventListener('change', updatePrice);
+
+                // Wywołaj funkcję na początku, aby początkowo ustawić cenę
+                updatePrice();
+            </script>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>

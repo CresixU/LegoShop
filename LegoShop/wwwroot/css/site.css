@@ -8,6 +8,14 @@
   }
 }
 
+/* style.css */
+@font-face {
+    font-family: 'Jost';
+    src: url('https://fonts.googleapis.com/css2?family=Jost:wght@100&display=swap');
+    /* Inne właściwości czcionki, jeśli są dostępne, np. font-weight, font-style */
+}
+
+
 html {
   position: relative;
   min-height: 100%;
@@ -36,8 +44,17 @@ body {
     text-align: center;
     font-weight: bold;
 }
-/*ZACZNIJ TERAZ*/
+/*ZACZNIJ TERAZ W PRODUKTACH*/
 .centered-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80px; /* Ustawia wysokość kontenera na 100% widocznej części okna przeglądarki */
+    margin-bottom: 25px;
+}
+
+/*ZACZNIJ TERAZ STRONA GŁÓWNA*/
+.centered-button2 {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -191,9 +208,48 @@ th {
         box-shadow: 0 0 0 var(--kolor3); /*3*/
         color: white;
     }
+
+.buttontest2 {
+    --kolor1: #701e24;
+    --kolor2: #d15861;
+    --kolor3: #2e0c0e;
+    cursor: pointer;
+    width: 170px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    font-size: 1.125em;
+    font-weight: 500;
+    letter-spacing: 2px;
+    color: white;
+    background: var(--kolor1); /*1*/
+    border: 2px solid var(--kolor2); /*2*/
+    box-shadow: 0 8px 0 var(--kolor2); /*2*/
+    transform: skew(-10deg);
+    transition: all .1s ease;
+    filter: drop-shadow(0 15px 20px var(--kolor3)); /*3*/
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+    .buttontest2:hover, .button:focus {
+        letter-spacing: 2px;
+        transform: skew(-10deg) translateY(8px);
+        box-shadow: 0 0 0 var(--kolor3); /*3*/
+        color: white;
+    }
 .logo-link {
     margin-top: 0px; /* Margines górny */
     margin-bottom: 5px; /* Margines dolny */
     margin-left: 100px; /* Margines lewy */
     margin-right: 10px; /* Margines prawy */
+}
+.description {
+    color: #9c4148;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 2px;
+    font-weight: bold;
 }
