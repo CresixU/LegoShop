@@ -253,3 +253,67 @@ th {
     letter-spacing: 2px;
     font-weight: bold;
 }
+.buttonbuy {
+    --kolor1: #701e24;
+    --kolor2: #d15861;
+    --kolor3: #2e0c0e;
+    cursor: pointer;
+    width: 180px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    font-size: 1.125em;
+    font-weight: 500;
+    letter-spacing: 2px;
+    color: white;
+    background: var(--kolor1); /*1*/
+    border: 2px solid var(--kolor2); /*2*/
+    box-shadow: 0 8px 0 var(--kolor2); /*2*/
+    transform: skew(-10deg);
+    transition: all .1s ease;
+    filter: drop-shadow(0 15px 20px var(--kolor3)); /*3*/
+    text-transform: uppercase;
+    text-decoration: none;
+    margin-bottom: 50px;
+}
+
+    .buttonbuy:hover, .button:focus {
+        letter-spacing: 2px;
+        transform: skew(-10deg) translateY(8px);
+        box-shadow: 0 0 0 var(--kolor3); /*3*/
+        color: white;
+    }
+.buttonback {
+    --kolor1: #701e24;
+    --kolor2: #d15861;
+    --kolor3: #2e0c0e;
+    cursor: pointer;
+    width: 180px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    font-size: 1.125em;
+    font-weight: 500;
+    letter-spacing: 2px;
+    color: white;
+    background: var(--kolor1); /*1*/
+    border: 2px solid var(--kolor2); /*2*/
+    box-shadow: 0 8px 0 var(--kolor2); /*2*/
+    transform: skew(-10deg);
+    transition: all .1s ease;
+    filter: drop-shadow(0 15px 20px var(--kolor3)); /*3*/
+    text-transform: uppercase;
+    text-decoration: none;
+    margin-bottom: 50px;
+}
+
+    .buttonback:hover, .button:focus {
+        letter-spacing: 2px;
+        transform: skew(-10deg) translateY(8px);
+        box-shadow: 0 0 0 var(--kolor3); /*3*/
+        color: white;
+    }
