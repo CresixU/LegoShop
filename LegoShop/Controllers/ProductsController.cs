@@ -26,12 +26,10 @@ namespace LegoShop.Controllers
 
             var user = await _userManager.FindByNameAsync(User.Identity.Name);
 
-            
-            if(!User.IsInRole("Admin"))
-                products = _context.Orders
-                    .Include(o => o.Product)
-                    .Where(o => o.UserId == user.Id)
-                    .Select(o => o.Product);
+
+            if (!User.IsInRole("Admin"))
+                products = _context.Products
+                    .Where(p => p.UserId == user.Id);
             else
                 products = _context.Products;
 
@@ -72,12 +70,19 @@ namespace LegoShop.Controllers
             if (ModelState.IsValid)
             {
                 product.Id = Guid.NewGuid();
+
                 var defaultPrice = 50M;
                 if (product.FrameSize == "Medium")
                     defaultPrice = 75M;
                 else if (product.FrameSize == "Big")
                     defaultPrice = 100M;
                 product.Price = defaultPrice;
+
+                var currentUser = await _context.Users
+                .Where(u => u.Email == User.Identity.Name)
+                .FirstOrDefaultAsync();
+
+                product.User = currentUser;
 
                 _context.Add(product);
                 await _context.SaveChangesAsync();
@@ -174,7 +179,7 @@ namespace LegoShop.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        // GET: Products/Delete/5
+        // GET: Products/CreateOrder/5
         public async Task<IActionResult> CreateOrder(Guid? id)
         {
             if (id == null || _context.Products == null)
