@@ -4,9 +4,8 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
+<h1>Edytuj zamówienie</h1>
 
-<h4>Order</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -38,16 +37,24 @@
                 <select asp-for="OrderStatusId" class="form-control" asp-items="ViewBag.OrderStatusId"></select>
                 <span asp-validation-for="OrderStatusId" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+            <div class="obok">
+                <input type="submit" value="Zapisz zmiany" class="zapiszzmiany" />
+                    <a asp-action="Index" class="powrotorder">Powrót</a>
             </div>
         </form>
     </div>
 </div>
+<style>
+    .obok {
+        display: inline-flex;
+        align-items: center; /* Dopasuj elementy do środka osi pionowej */
+    }
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+        .obok > * {
+            margin-right: 10px; /* Dodaj odpowiedni margines między elementami */
+        }
+</style>
+
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

@@ -42,7 +42,17 @@
         </dd>
     </dl>
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+<div class="obok">
+    <a asp-action="Edit" class=editdetails asp-route-id="@Model?.Id">Edytuj</a>
+    <a asp-action="Index" class="backdetails">Powrót</a>
 </div>
+<style>
+    .obok {
+        display: inline-flex;
+        align-items: center; /* Dopasuj elementy do środka osi pionowej */
+    }
+
+        .obok > * {
+            margin-right: 10px; /* Dodaj odpowiedni margines między elementami */
+        }
+</style>

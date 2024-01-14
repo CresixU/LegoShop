@@ -716,3 +716,329 @@ th {
         box-shadow: 0 0 0 var(--kolor3); /*3*/
         color: white;
     }
+.cancelorder {
+    --kolor1: #8c8c8c;
+    --kolor2: #cfcfcf;
+    --kolor3: #e0e0e0;
+    cursor: pointer;
+    width: 120px;
+    height: 60px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    font-size: 1.125em;
+    font-weight: 500;
+    letter-spacing: 2px;
+    color: white;
+    background: var(--kolor1); /*1*/
+    border: 2px solid var(--kolor2); /*2*/
+    box-shadow: 0 8px 0 var(--kolor2); /*2*/
+    transform: skew(-10deg);
+    transition: all .1s ease;
+    filter: drop-shadow(0 15px 20px var(--kolor3)); /*3*/
+    text-transform: uppercase;
+    text-decoration: none;
+    margin-bottom: 10px;
+}
+
+    .cancelorder:hover, .button:focus {
+        letter-spacing: 2px;
+        transform: skew(-10deg) translateY(8px);
+        box-shadow: 0 0 0 var(--kolor3); /*3*/
+        color: white;
+    }
+.detailsorder {
+    --kolor1: #8c8c8c;
+    --kolor2: #cfcfcf;
+    --kolor3: #e0e0e0;
+    cursor: pointer;
+    width: 150px;
+    height: 60px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    font-size: 1.125em;
+    font-weight: 500;
+    letter-spacing: 2px;
+    color: white;
+    background: var(--kolor1); /*1*/
+    border: 2px solid var(--kolor2); /*2*/
+    box-shadow: 0 8px 0 var(--kolor2); /*2*/
+    transform: skew(-10deg);
+    transition: all .1s ease;
+    filter: drop-shadow(0 15px 20px var(--kolor3)); /*3*/
+    text-transform: uppercase;
+    text-decoration: none;
+    margin-bottom: 10px;
+}
+
+    .detailsorder:hover, .button:focus {
+        letter-spacing: 2px;
+        transform: skew(-10deg) translateY(8px);
+        box-shadow: 0 0 0 var(--kolor3); /*3*/
+        color: white;
+    }
+.editorder {
+    --kolor1: #8c8c8c;
+    --kolor2: #cfcfcf;
+    --kolor3: #e0e0e0;
+    cursor: pointer;
+    width: 120px;
+    height: 60px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    font-size: 1.125em;
+    font-weight: 500;
+    letter-spacing: 2px;
+    color: white;
+    background: var(--kolor1); /*1*/
+    border: 2px solid var(--kolor2); /*2*/
+    box-shadow: 0 8px 0 var(--kolor2); /*2*/
+    transform: skew(-10deg);
+    transition: all .1s ease;
+    filter: drop-shadow(0 15px 20px var(--kolor3)); /*3*/
+    text-transform: uppercase;
+    text-decoration: none;
+    margin-bottom: 10px;
+}
+
+    .editorder:hover, .button:focus {
+        letter-spacing: 2px;
+        transform: skew(-10deg) translateY(8px);
+        box-shadow: 0 0 0 var(--kolor3); /*3*/
+        color: white;
+    }
+.deleteorder {
+    --kolor1: #ed4747;
+    --kolor2: #cfcfcf;
+    --kolor3: #e0e0e0;
+    cursor: pointer;
+    width: 90px;
+    height: 60px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    font-size: 1.125em;
+    font-weight: 500;
+    letter-spacing: 2px;
+    color: white;
+    background: var(--kolor1); /*1*/
+    border: 2px solid var(--kolor2); /*2*/
+    box-shadow: 0 8px 0 var(--kolor2); /*2*/
+    transform: skew(-10deg);
+    transition: all .1s ease;
+    filter: drop-shadow(0 15px 20px var(--kolor3)); /*3*/
+    text-transform: uppercase;
+    text-decoration: none;
+    margin-bottom: 10px;
+}
+
+    .deleteorder:hover, .button:focus {
+        letter-spacing: 2px;
+        transform: skew(-10deg) translateY(8px);
+        box-shadow: 0 0 0 var(--kolor3); /*3*/
+        color: white;
+    }
+.editdetails {
+    --kolor1: #3ca340; /*zielone*/
+    --kolor2: #89d98c;
+    --kolor3: #b3e8b5;
+    cursor: pointer;
+    width: 120px;
+    height: 60px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    font-size: 1.125em;
+    font-weight: 500;
+    letter-spacing: 2px;
+    color: white;
+    background: var(--kolor1); /*1*/
+    border: 2px solid var(--kolor2); /*2*/
+    box-shadow: 0 8px 0 var(--kolor2); /*2*/
+    transform: skew(-10deg);
+    transition: all .1s ease;
+    filter: drop-shadow(0 15px 20px var(--kolor3)); /*3*/
+    text-transform: uppercase;
+    text-decoration: none;
+    margin-bottom: 10px;
+}
+
+    .editdetails:hover, .button:focus {
+        letter-spacing: 2px;
+        transform: skew(-10deg) translateY(8px);
+        box-shadow: 0 0 0 var(--kolor3); /*3*/
+        color: white;
+    }
+.backdetails {
+    --kolor1: #8c8c8c;
+    --kolor2: #cfcfcf;
+    --kolor3: #e0e0e0;
+    cursor: pointer;
+    width: 120px;
+    height: 60px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    font-size: 1.125em;
+    font-weight: 500;
+    letter-spacing: 2px;
+    color: white;
+    background: var(--kolor1); /*1*/
+    border: 2px solid var(--kolor2); /*2*/
+    box-shadow: 0 8px 0 var(--kolor2); /*2*/
+    transform: skew(-10deg);
+    transition: all .1s ease;
+    filter: drop-shadow(0 15px 20px var(--kolor3)); /*3*/
+    text-transform: uppercase;
+    text-decoration: none;
+    margin-bottom: 10px;
+}
+
+    .backdetails:hover, .button:focus {
+        letter-spacing: 2px;
+        transform: skew(-10deg) translateY(8px);
+        box-shadow: 0 0 0 var(--kolor3); /*3*/
+        color: white;
+    }
+.zapiszzmiany {
+    --kolor1: #3ca340; /*zielone*/
+    --kolor2: #89d98c;
+    --kolor3: #b3e8b5;
+    cursor: pointer;
+    width: 190px;
+    height: 60px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    font-size: 1.125em;
+    font-weight: 500;
+    letter-spacing: 2px;
+    color: white;
+    background: var(--kolor1); /*1*/
+    border: 2px solid var(--kolor2); /*2*/
+    box-shadow: 0 8px 0 var(--kolor2); /*2*/
+    transform: skew(-10deg);
+    transition: all .1s ease;
+    filter: drop-shadow(0 15px 20px var(--kolor3)); /*3*/
+    text-transform: uppercase;
+    text-decoration: none;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+
+    .zapiszzmiany:hover, .button:focus {
+        letter-spacing: 2px;
+        transform: skew(-10deg) translateY(8px);
+        box-shadow: 0 0 0 var(--kolor3); /*3*/
+        color: white;
+    }
+
+.powrotorder {
+    --kolor1: #8c8c8c;
+    --kolor2: #cfcfcf;
+    --kolor3: #e0e0e0;
+    cursor: pointer;
+    width: 120px;
+    height: 60px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    font-size: 1.125em;
+    font-weight: 500;
+    letter-spacing: 2px;
+    color: white;
+    background: var(--kolor1); /*1*/
+    border: 2px solid var(--kolor2); /*2*/
+    box-shadow: 0 8px 0 var(--kolor2); /*2*/
+    transform: skew(-10deg);
+    transition: all .1s ease;
+    filter: drop-shadow(0 15px 20px var(--kolor3)); /*3*/
+    text-transform: uppercase;
+    text-decoration: none;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+
+    .powrotorder:hover, .button:focus {
+        letter-spacing: 2px;
+        transform: skew(-10deg) translateY(8px);
+        box-shadow: 0 0 0 var(--kolor3); /*3*/
+        color: white;
+    }
+.deletedelete {
+    --kolor1: #ed4747;
+    --kolor2: #cfcfcf;
+    --kolor3: #e0e0e0;
+    cursor: pointer;
+    width: 90px;
+    height: 60px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    font-size: 1.125em;
+    font-weight: 500;
+    letter-spacing: 2px;
+    color: white;
+    background: var(--kolor1); /*1*/
+    border: 2px solid var(--kolor2); /*2*/
+    box-shadow: 0 8px 0 var(--kolor2); /*2*/
+    transform: skew(-10deg);
+    transition: all .1s ease;
+    filter: drop-shadow(0 15px 20px var(--kolor3)); /*3*/
+    text-transform: uppercase;
+    text-decoration: none;
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
+
+    .deletedelete:hover, .button:focus {
+        letter-spacing: 2px;
+        transform: skew(-10deg) translateY(8px);
+        box-shadow: 0 0 0 var(--kolor3); /*3*/
+        color: white;
+    }
+
+.backback {
+    --kolor1: #8c8c8c;
+    --kolor2: #cfcfcf;
+    --kolor3: #e0e0e0;
+    cursor: pointer;
+    width: 120px;
+    height: 60px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    font-size: 1.125em;
+    font-weight: 500;
+    letter-spacing: 2px;
+    color: white;
+    background: var(--kolor1); /*1*/
+    border: 2px solid var(--kolor2); /*2*/
+    box-shadow: 0 8px 0 var(--kolor2); /*2*/
+    transform: skew(-10deg);
+    transition: all .1s ease;
+    filter: drop-shadow(0 15px 20px var(--kolor3)); /*3*/
+    text-transform: uppercase;
+    text-decoration: none;
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
+
+    .backback:hover, .button:focus {
+        letter-spacing: 2px;
+        transform: skew(-10deg) translateY(8px);
+        box-shadow: 0 0 0 var(--kolor3); /*3*/
+        color: white;
+    }
