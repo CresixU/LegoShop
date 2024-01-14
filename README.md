@@ -27,7 +27,7 @@ W aplikacji mogą wystąpić dwa napotkane rodzaje błędów
 - Problem z seederem
 
 #### Pierwszy błąd
-Można go naprawić konfigurując odpowiednio plik appsettings.json \ (Szczegóły w dokumentacji)
+Można go naprawić konfigurując odpowiednio plik appsettings.json  (Szczegóły w dokumentacji) \
 Różne konfiguracje występują na branchu `Krystian` oraz `Jakub`
 Spróbuj uruchomić projekt ponownie
 
