@@ -22,30 +22,27 @@ Projekt jest przystosowany do automatycznego utworznia oraz zaaktualizowania baz
 
     
 ## Mam błąd
+W aplikacji mogą wystąpić dwa napotkane rodzaje błędów
+- Problem z połączeniem do serwera bazy danych lub samej bazy danych
+- Problem z seederem
 
-#### Pierwszy raz
-
+#### Pierwszy błąd
+Można go naprawić konfigurując odpowiednio plik appsettings.json \
+Różne konfiguracje występują na branchu `Krystian` oraz `Jakub`
 Spróbuj uruchomić projekt ponownie
 
-#### Znowu?
+#### Drugi błąd
 
 Wyłącz projekt \
+Zakomentuj linijkę 23 w `Program.cs` \
 Kliknij Narzędzia -> Menedżer pakietów NuGet -> Konsola... \
 Wpisz `update-database` \
+Odkomentuj linijkę 23 w `Program.cs` \
 Uruchom projekt 
-
-#### Nadal?!
-
-W `Program.cs` komentujsz linijkę `23`, robisz kroki z poprzedniego punktu, odkomentowywujesz i uruchamiasz projekt
-
 
 
 ## Kontakt
-
-| Forma kontaktu | Kontakt     | Czas odpowiedzi    |
-| :-------- | :------- | :------------------------- |
-| Discord (preferowany) | CresixU | do 2 godzin |
-| E-mail | CresixU@gmail.com | do 6 godzin |
+Discord: CresixU
 
 
 
