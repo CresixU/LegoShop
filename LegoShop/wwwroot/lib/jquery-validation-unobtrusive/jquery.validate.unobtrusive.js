@@ -17,7 +17,7 @@
         // CommonJS-like environments that support module.exports     
         module.exports = factory(require('jquery-validation'));
     } else {
-        // Browser global
+        // Browser globalemail
         jQuery.validator.unobtrusive = factory(jQuery);
     }
 }(function ($) {

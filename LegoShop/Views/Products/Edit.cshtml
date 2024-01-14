@@ -4,9 +4,8 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
+<h1>Edycja produktu</h1>
 
-<h4>Product</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -64,15 +63,22 @@
                 <textarea asp-for="Description" class="form-control"></textarea>
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+            <div class="obok">
+                <input type="submit" value="Zapisz produkt" class="zapiszprodukt" />
+                    <a asp-action="Index" class="backtolist">Powrót do listy produktów</a>
             </div>
+            <style>
+                .obok {
+                    display: inline-flex;
+                    align-items: center; /* Dopasuj elementy do środka osi pionowej */
+                }
+
+                    .obok > * {
+                        margin-right: 10px; /* Dodaj odpowiedni margines między elementami */
+                    }
+            </style>
         </form>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
 </div>
 
 @section Scripts {

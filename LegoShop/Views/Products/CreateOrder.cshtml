@@ -53,7 +53,7 @@
         </dd>
     </dl>
 </div>
-<div>
+<div class="obok">
     <form asp-action="CreateOrder">
         <input type="hidden" asp-for="Id" />
         <input type="submit" value="Kup produkt" class="buttonbuy" />
@@ -62,3 +62,12 @@
         <a asp-action="Details" asp-route-id="@Model?.Id" class="buttonback">Powrót</a>
     </form>
 </div>
+<style>
+    .obok form {
+        display: inline-flex;
+    }
+
+    .obok form > * {
+        margin-right: 40px; /* Dodaj odpowiedni margines między elementami */
+    }
+</style>
