@@ -29,6 +29,7 @@ body {
     border: 2px solid transparent;
     display: inline-flex; /* Pozwala na stosowanie właściwości flex, ale zachowuje zachowanie inline */
     align-items: center; /* Dodane, jeśli chcesz wyśrodkować tekst/link wewnątrz */
+    background-color: transparent;
 }
     .nav-link:hover {
         color: #b83038 !important; /* Zmienia kolor tekstu na czerwony po najechaniu */
