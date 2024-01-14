@@ -5,7 +5,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Moja Mozaika LEGO</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@100&display=swap" rel="stylesheet">
     <style>
+
         body {
             font-family: Arial, sans-serif;
             background-color: white;
@@ -19,7 +23,6 @@
             width: 100%;
             min-height: 90vh;
             padding: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         .image-section {
@@ -41,17 +44,31 @@
         .description {
             margin-top: 15px;
         }
+
     </style>
 </head>
 <body>
     <div id="content">
-        <div class="header">
-        <h1>
+        <div class="centered-button2">
+            <a class="buttontest2" asp-action="CreateProduct">Rozpocznij</a>
+        </div>
+        <div class="image-section">
+            <div class="image-description">
+                <p class="description">Obraz, który wkleisz jako link podczas tworzenia produktu</p>
+                <img src="https://i.imgur.com/cqMfF2V.png" alt="Przykładowa Mozaika LEGO 1" width="250" height="250">
+            </div>
+            <div class="image-description">
+                <p class="description">Produkt, który złożysz po otrzymaniu</p>
+                <img src="https://i.imgur.com/jS7gmnz.png" alt="Przykładowa Mozaika LEGO 2" width="300" height="300">
+            </div>
+        </div>
+        <div class="headermain">
+        <h3>
             Witamy na naszej stronie poświęconej tworzeniu własnych obrazów z klocków LEGO!
 
-        </h1>
+        </h3>
         </div>
-<p>Założyliśmy tę stronę z miłości do twórczości, sztuki i nieskończonych możliwości, jakie oferują klocki LEGO. Od dziesięcioleci klocki LEGO stanowią nie tylko źródło zabawy dla dzieci, ale także stały się narzędziem dla artystów, projektantów i entuzjastów tworzenia na całym świecie.
+<p class="tekstmain">Założyliśmy tę stronę z miłości do twórczości, sztuki i nieskończonych możliwości, jakie oferują klocki LEGO. Od dziesięcioleci klocki LEGO stanowią nie tylko źródło zabawy dla dzieci, ale także stały się narzędziem dla artystów, projektantów i entuzjastów tworzenia na całym świecie.
 
 </p>
         <div class="header">
@@ -61,24 +78,8 @@
         </h3>
         </div>
                 <div class="header">
-<p>Mozaiki LEGO to wyjątkowy sposób na połączenie zabawy z artystycznym wyrazem. Są one nie tylko estetycznie piękne, ale także oferują wyjątkowe doświadczenie twórcze, łącząc elementy planowania, projektowania i realizacji wizji artystycznej. Tworzenie mozaiki LEGO to również wspaniała okazja do rozwijania zdolności przestrzennego myślenia, cierpliwości i koncentracji.
-
-
-
+<p class="tekstmain">Mozaiki LEGO to wyjątkowy sposób na połączenie zabawy z artystycznym wyrazem. Są one nie tylko estetycznie piękne, ale także oferują wyjątkowe doświadczenie twórcze, łącząc elementy planowania, projektowania i realizacji wizji artystycznej. Tworzenie mozaiki LEGO to również wspaniała okazja do rozwijania zdolności przestrzennego myślenia, cierpliwości i koncentracji.
 </p>
-            <div class="centered-button mt-5">
-                <a class="buttonproduct" asp-action="CreateProduct">Zacznij teraz!</a>
-            </div>
-        </div>
-        <div class="image-section">
-            <div class="image-description">
-                <p class="description">Obraz wgrany przez Ciebie</p>
-                <img src="https://i.imgur.com/cqMfF2V.png" alt="Przykładowa Mozaika LEGO 1">
-            </div>
-            <div class="image-description">
-                <p class="description">Jak będzie wyglądać po złożeniu</p>
-                <img src="https://i.imgur.com/jS7gmnz.png" alt="Przykładowa Mozaika LEGO 2">
-            </div>
         </div>
     </div>
 </body>

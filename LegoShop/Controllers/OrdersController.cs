@@ -30,6 +30,7 @@ namespace LegoShop.Controllers
                 .Include(o => o.Product)
                 .Where(o => o.User.Id == user.Id);
 
+
             if (User.IsInRole("Admin"))
             {
                 query = _context.Orders
@@ -38,7 +39,12 @@ namespace LegoShop.Controllers
                 .Include(o => o.User);
             }
 
-            return View(await query.ToListAsync());
+            var result = await query
+                .OrderBy(o => o.OrderStatus.ConstId)
+                .ThenBy(o => o.OrderDate)
+                .ToListAsync();
+
+            return View(result);
         }
 
         // GET: Orders/Details/5
@@ -65,9 +71,9 @@ namespace LegoShop.Controllers
         // GET: Orders/Create
         public IActionResult Create()
         {
-            ViewData["OrderStatusId"] = new SelectList(_context.OrderStatuses, "Id", "Id");
-            ViewData["ProductId"] = new SelectList(_context.Products, "Id", "Id");
-            ViewData["UserId"] = new SelectList(_context.Users, "Id", "Id");
+            ViewData["OrderStatusId"] = new SelectList(_context.OrderStatuses, "Id", "Name");
+            ViewData["ProductId"] = new SelectList(_context.Products, "Id", "Name");
+            ViewData["UserId"] = new SelectList(_context.Users, "Id", "Email");
             return View();
         }
 
@@ -85,9 +91,9 @@ namespace LegoShop.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["OrderStatusId"] = new SelectList(_context.OrderStatuses, "Id", "Id", order.OrderStatusId);
-            ViewData["ProductId"] = new SelectList(_context.Products, "Id", "Id", order.ProductId);
-            ViewData["UserId"] = new SelectList(_context.Users, "Id", "Id", order.UserId);
+            ViewData["OrderStatusId"] = new SelectList(_context.OrderStatuses, "Id", "Name", order.OrderStatusId);
+            ViewData["ProductId"] = new SelectList(_context.Products, "Id", "Name", order.ProductId);
+            ViewData["UserId"] = new SelectList(_context.Users, "Id", "Email", order.UserId);
             return View(order);
         }
 
@@ -108,9 +114,9 @@ namespace LegoShop.Controllers
             if (!await IsCurrentUserOwnerOrAdmin(order))
                 return NotFound();
 
-            ViewData["OrderStatusId"] = new SelectList(_context.OrderStatuses, "Id", "Id", order.OrderStatusId);
-            ViewData["ProductId"] = new SelectList(_context.Products, "Id", "Id", order.ProductId);
-            ViewData["UserId"] = new SelectList(_context.Users, "Id", "Id", order.UserId);
+            ViewData["OrderStatusId"] = new SelectList(_context.OrderStatuses, "Id", "Name", order.OrderStatusId);
+            ViewData["ProductId"] = new SelectList(_context.Products, "Id", "Name", order.ProductId);
+            ViewData["UserId"] = new SelectList(_context.Users, "Id", "Email", order.UserId);
             return View(order);
         }
 
@@ -149,9 +155,9 @@ namespace LegoShop.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["OrderStatusId"] = new SelectList(_context.OrderStatuses, "Id", "Id", order.OrderStatusId);
-            ViewData["ProductId"] = new SelectList(_context.Products, "Id", "Id", order.ProductId);
-            ViewData["UserId"] = new SelectList(_context.Users, "Id", "Id", order.UserId);
+            ViewData["OrderStatusId"] = new SelectList(_context.OrderStatuses, "Id", "Name", order.OrderStatusId);
+            ViewData["ProductId"] = new SelectList(_context.Products, "Id", "Name", order.ProductId);
+            ViewData["UserId"] = new SelectList(_context.Users, "Id", "Email", order.UserId);
             return View(order);
         }
 

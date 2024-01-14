@@ -4,7 +4,7 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Twoje zamówienia</h1>
 
 
 <table class="table">
@@ -41,7 +41,7 @@
                 @Html.DisplayFor(modelItem => item.TotalPrice)
             </td>
             <td>
-                <a asp-controller="Products" asp-action="Details" asp-route-id="@item.Product.Id">@Html.DisplayFor(modelItem => item.Product.Name)</a>
+                <a asp-controller="Products" asp-action="Details" class=orderpodglad asp-route-id="@item.Product.Id">@Html.DisplayFor(modelItem => item.Product.Name)</a>
             </td>
             @if(User.IsInRole("Admin"))
             {
@@ -52,16 +52,17 @@
             <td>
                 @Html.DisplayFor(modelItem => item.OrderStatus.Name)
             </td>
+
             <td>
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a>
                 @if (item.OrderStatus.ConstId != 7)
                 {
-                    <a asp-action="CancelOrder" asp-route-id="@item.Id">CancelOrder</a>
+                    <a asp-action="CancelOrder" class="cancelorder" asp-route-id="@item.Id">Anuluj</a>
                 }
                 @if(User.IsInRole("Admin"))
                 {
-                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
-                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                        <a asp-action="Details" class="detailsorder" asp-route-id="@item.Id">Szczegóły</a>
+                        <a asp-action="Edit" class="editorder" asp-route-id="@item.Id">Edytuj</a>
+                        <a asp-action="Delete" class="deleteorder" asp-route-id="@item.Id">Usuń</a>
                 }
             </td>
         </tr>

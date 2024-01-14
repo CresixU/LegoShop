@@ -53,8 +53,7 @@ namespace LegoShop.Data
 
                 b.Property(o => o.TotalPrice)
                     .HasColumnType("decimal")
-                    .HasDefaultValue(0)
-                    .HasPrecision(2);
+                    .HasDefaultValue(0);
             });
 
 
@@ -62,8 +61,11 @@ namespace LegoShop.Data
             {
                 b.Property(p => p.Price)
                     .HasColumnType("decimal")
-                    .HasDefaultValue(0)
-                    .HasPrecision(2);
+                    .HasDefaultValue(0);
+
+                b.HasOne(p => p.User)
+                    .WithMany(u => u.Products)
+                    .HasForeignKey(p => p.UserId);
             });
 
         }

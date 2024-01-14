@@ -4,10 +4,9 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<h1>Zamawianie produktu</h1>
 
 <div>
-    <h4>Product</h4>
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
@@ -50,14 +49,25 @@
             @Html.DisplayNameFor(model => model.ImageUrl)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ImageUrl)
+            <img src="@Model.ImageUrl" alt="Obrazek" width="200" height="200" />
         </dd>
     </dl>
 </div>
-<div>
+<div class="obok">
     <form asp-action="CreateOrder">
         <input type="hidden" asp-for="Id" />
-        <input type="submit" value="Create Order" class="btn btn-danger" /> |
-        <a asp-action="Details" asp-route-id="@Model?.Id">Back to Product</a>
+        <input type="submit" value="Kup produkt" class="buttonbuy" />
+    </form>
+    <form asp-action="CreateOrder">
+        <a asp-action="Details" asp-route-id="@Model?.Id" class="buttonback">Powrót</a>
     </form>
 </div>
+<style>
+    .obok form {
+        display: inline-flex;
+    }
+
+    .obok form > * {
+        margin-right: 40px; /* Dodaj odpowiedni margines między elementami */
+    }
+</style>

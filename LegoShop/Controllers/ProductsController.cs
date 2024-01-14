@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using LegoShop.Data;
 using LegoShop.Data.Entities;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 
 namespace LegoShop.Controllers
 {
@@ -10,16 +11,29 @@ namespace LegoShop.Controllers
     public class ProductsController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly UserManager<ApplicationUser> _userManager;
 
-        public ProductsController(ApplicationDbContext context)
+        public ProductsController(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         // GET: Products
         public async Task<IActionResult> Index()
         {
-              return View(await _context.Products.ToListAsync());
+            IQueryable<Product> products;
+
+            var user = await _userManager.FindByNameAsync(User.Identity.Name);
+
+
+            if (!User.IsInRole("Admin"))
+                products = _context.Products
+                    .Where(p => p.UserId == user.Id);
+            else
+                products = _context.Products;
+
+            return View(await products.OrderBy(p => p.Name).ToListAsync());
         }
 
         // GET: Products/Details/5
@@ -56,12 +70,20 @@ namespace LegoShop.Controllers
             if (ModelState.IsValid)
             {
                 product.Id = Guid.NewGuid();
+
                 var defaultPrice = 50M;
                 if (product.FrameSize == "Medium")
                     defaultPrice = 75M;
                 else if (product.FrameSize == "Big")
                     defaultPrice = 100M;
                 product.Price = defaultPrice;
+
+                var currentUser = await _context.Users
+                .Where(u => u.Email == User.Identity.Name)
+                .FirstOrDefaultAsync();
+
+                product.User = currentUser;
+
                 _context.Add(product);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -157,7 +179,7 @@ namespace LegoShop.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        // GET: Products/Delete/5
+        // GET: Products/CreateOrder/5
         public async Task<IActionResult> CreateOrder(Guid? id)
         {
             if (id == null || _context.Products == null)

@@ -4,6 +4,7 @@ using LegoShop.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LegoShop.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240112214226_fixDecimalPrecision")]
+    partial class fixDecimalPrecision
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -165,7 +168,6 @@ namespace LegoShop.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ImageUrl")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("MosaicType")
@@ -179,12 +181,7 @@ namespace LegoShop.Data.Migrations
                         .HasColumnType("decimal")
                         .HasDefaultValue(0m);
 
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("Products");
                 });
@@ -385,15 +382,6 @@ namespace LegoShop.Data.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("LegoShop.Data.Entities.Product", b =>
-                {
-                    b.HasOne("LegoShop.Data.Entities.ApplicationUser", "User")
-                        .WithMany("Products")
-                        .HasForeignKey("UserId");
-
-                    b.Navigation("User");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -448,8 +436,6 @@ namespace LegoShop.Data.Migrations
             modelBuilder.Entity("LegoShop.Data.Entities.ApplicationUser", b =>
                 {
                     b.Navigation("Orders");
-
-                    b.Navigation("Products");
                 });
 
             modelBuilder.Entity("LegoShop.Data.Entities.OrderStatus", b =>

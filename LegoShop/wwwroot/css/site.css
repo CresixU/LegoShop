@@ -8,6 +8,14 @@
   }
 }
 
+/* style.css */
+@font-face {
+    font-family: 'Jost';
+    src: url('https://fonts.googleapis.com/css2?family=Jost:wght@100&display=swap');
+    /* Inne właściwości czcionki, jeśli są dostępne, np. font-weight, font-style */
+}
+
+
 html {
   position: relative;
   min-height: 100%;
@@ -21,6 +29,7 @@ body {
     border: 2px solid transparent;
     display: inline-flex; /* Pozwala na stosowanie właściwości flex, ale zachowuje zachowanie inline */
     align-items: center; /* Dodane, jeśli chcesz wyśrodkować tekst/link wewnątrz */
+    background-color: transparent;
 }
     .nav-link:hover {
         color: #b83038 !important; /* Zmienia kolor tekstu na czerwony po najechaniu */
@@ -34,10 +43,32 @@ body {
 /*PASEK NAWIGACJI*/
 .header {
     text-align: center;
-    font-weight: bold;
 }
-/*ZACZNIJ TERAZ*/
+.headermain {
+    text-align: center;
+    margin-top: 30px;
+}
+.tekstmain {
+    color: #b83038;
+}
+.image-section {
+    text-align: center;
+}
+.obok {
+
+
+}
+/*ZACZNIJ TERAZ W PRODUKTACH*/
 .centered-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80px; /* Ustawia wysokość kontenera na 100% widocznej części okna przeglądarki */
+    margin-bottom: 25px;
+}
+
+/*ZACZNIJ TERAZ STRONA GŁÓWNA*/
+.centered-button2 {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -97,9 +128,9 @@ th {
 }
 /* Kup produkt */
 .button-link {
-    --kolor1: #701e24;
-    --kolor2: #d15861;
-    --kolor3: #2e0c0e;
+    --kolor1: #3ca340; /*zielone*/
+    --kolor2: #89d98c;
+    --kolor3: #b3e8b5;
     cursor: pointer;
     width: 180px;
     height: 40px;
@@ -129,9 +160,9 @@ th {
     }
 /* Szczegóły produktu */
 .button-link-two {
-    --kolor1: #701e24;
-    --kolor2: #d15861;
-    --kolor3: #2e0c0e;
+    --kolor1: #8c8c8c;
+    --kolor2: #cfcfcf;
+    --kolor3: #e0e0e0;
     cursor: pointer;
     width: 155px;
     height: 40px;
@@ -191,9 +222,823 @@ th {
         box-shadow: 0 0 0 var(--kolor3); /*3*/
         color: white;
     }
+
+.buttontest2 {
+    --kolor1: #701e24;
+    --kolor2: #d15861;
+    --kolor3: #2e0c0e;
+    cursor: pointer;
+    width: 170px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    font-size: 1.125em;
+    font-weight: 500;
+    letter-spacing: 2px;
+    color: white;
+    background: var(--kolor1); /*1*/
+    border: 2px solid var(--kolor2); /*2*/
+    box-shadow: 0 8px 0 var(--kolor2); /*2*/
+    transform: skew(-10deg);
+    transition: all .1s ease;
+    filter: drop-shadow(0 15px 20px var(--kolor3)); /*3*/
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+    .buttontest2:hover, .button:focus {
+        letter-spacing: 2px;
+        transform: skew(-10deg) translateY(8px);
+        box-shadow: 0 0 0 var(--kolor3); /*3*/
+        color: white;
+    }
 .logo-link {
     margin-top: 0px; /* Margines górny */
     margin-bottom: 5px; /* Margines dolny */
     margin-left: 100px; /* Margines lewy */
     margin-right: 10px; /* Margines prawy */
 }
+.description {
+    color: #9c4148;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+.buttonbuy {
+    --kolor1: #3ca340; /*zielone*/
+    --kolor2: #89d98c;
+    --kolor3: #b3e8b5;
+    cursor: pointer;
+    width: 180px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    font-size: 1.125em;
+    font-weight: 500;
+    letter-spacing: 2px;
+    color: white;
+    background: var(--kolor1); /*1*/
+    border: 2px solid var(--kolor2); /*2*/
+    box-shadow: 0 8px 0 var(--kolor2); /*2*/
+    transform: skew(-10deg);
+    transition: all .1s ease;
+    filter: drop-shadow(0 15px 20px var(--kolor3)); /*3*/
+    text-transform: uppercase;
+    text-decoration: none;
+    margin-bottom: 50px;
+}
+
+    .buttonbuy:hover, .button:focus {
+        letter-spacing: 2px;
+        transform: skew(-10deg) translateY(8px);
+        box-shadow: 0 0 0 var(--kolor3); /*3*/
+        color: white;
+    }
+.buttonback {
+    --kolor1: #8c8c8c;
+    --kolor2: #cfcfcf;
+    --kolor3: #e0e0e0;
+    cursor: pointer;
+    width: 120px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    font-size: 1.125em;
+    font-weight: 500;
+    letter-spacing: 2px;
+    color: white;
+    background: var(--kolor1); /*1*/
+    border: 2px solid var(--kolor2); /*2*/
+    box-shadow: 0 8px 0 var(--kolor2); /*2*/
+    transform: skew(-10deg);
+    transition: all .1s ease;
+    filter: drop-shadow(0 15px 20px var(--kolor3)); /*3*/
+    text-transform: uppercase;
+    text-decoration: none;
+    margin-bottom: 50px;
+}
+
+    .buttonback:hover, .button:focus {
+        letter-spacing: 2px;
+        transform: skew(-10deg) translateY(8px);
+        box-shadow: 0 0 0 var(--kolor3); /*3*/
+        color: white;
+    }
+.registerbutton {
+    --kolor1: #701e24;
+    --kolor2: #d15861;
+    --kolor3: #2e0c0e;
+    cursor: pointer;
+    width: 200px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    font-size: 1.125em;
+    font-weight: 500;
+    letter-spacing: 2px;
+    color: white;
+    background: var(--kolor1); /*1*/
+    border: 2px solid var(--kolor2); /*2*/
+    box-shadow: 0 8px 0 var(--kolor2); /*2*/
+    transform: skew(-10deg);
+    transition: all .1s ease;
+    filter: drop-shadow(0 15px 20px var(--kolor3)); /*3*/
+    text-transform: uppercase;
+    text-decoration: none;
+    margin-bottom: 50px;
+}
+
+    .registerbutton:hover, .button:focus {
+        letter-spacing: 2px;
+        transform: skew(-10deg) translateY(8px);
+        box-shadow: 0 0 0 var(--kolor3); /*3*/
+        color: white;
+    }
+.confirmbutton {
+    --kolor1: #3ca340; /*zielone*/
+    --kolor2: #89d98c;
+    --kolor3: #b3e8b5;
+    cursor: pointer;
+    width: 500px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    font-size: 1.125em;
+    font-weight: 500;
+    letter-spacing: 2px;
+    color: white;
+    background: var(--kolor1); /*1*/
+    border: 2px solid var(--kolor2); /*2*/
+    box-shadow: 0 8px 0 var(--kolor2); /*2*/
+    transform: skew(-10deg);
+    transition: all .1s ease;
+    filter: drop-shadow(0 15px 20px var(--kolor3)); /*3*/
+    text-transform: uppercase;
+    text-decoration: none;
+    margin-top: 20px;
+}
+
+    .confirmbutton:hover, .button:focus {
+        letter-spacing: 2px;
+        transform: skew(-10deg) translateY(8px);
+        box-shadow: 0 0 0 var(--kolor3); /*3*/
+        color: white;
+    }
+.buttoncreate {
+    --kolor1: #3ca340;
+    --kolor2: #89d98c;
+    --kolor3: #b3e8b5;
+    cursor: pointer;
+    width: 220px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    font-size: 1.125em;
+    font-weight: 500;
+    letter-spacing: 2px;
+    color: white;
+    background: var(--kolor1); /*1*/
+    border: 2px solid var(--kolor2); /*2*/
+    box-shadow: 0 8px 0 var(--kolor2); /*2*/
+    transform: skew(-10deg);
+    transition: all .1s ease;
+    filter: drop-shadow(0 15px 20px var(--kolor3)); /*3*/
+    text-transform: uppercase;
+    text-decoration: none;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+    .buttoncreate:hover, .button:focus {
+        letter-spacing: 2px;
+        transform: skew(-10deg) translateY(8px);
+        box-shadow: 0 0 0 var(--kolor3); /*3*/
+        color: white;
+    }
+.buttoncreateback {
+    --kolor1: #8c8c8c;
+    --kolor2: #cfcfcf;
+    --kolor3: #e0e0e0;
+    cursor: pointer;
+    width: 360px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    font-size: 1.125em;
+    font-weight: 500;
+    letter-spacing: 2px;
+    color: white;
+    background: var(--kolor1); /*1*/
+    border: 2px solid var(--kolor2); /*2*/
+    box-shadow: 0 8px 0 var(--kolor2); /*2*/
+    transform: skew(-10deg);
+    transition: all .1s ease;
+    filter: drop-shadow(0 15px 20px var(--kolor3)); /*3*/
+    text-transform: uppercase;
+    text-decoration: none;
+    margin-top: 20px;
+}
+
+    .buttoncreateback:hover, .button:focus {
+        letter-spacing: 2px;
+        transform: skew(-10deg) translateY(8px);
+        box-shadow: 0 0 0 var(--kolor3); /*3*/
+        color: white;
+    }
+.edytuj {
+    --kolor1: #8c8c8c;
+    --kolor2: #cfcfcf;
+    --kolor3: #e0e0e0;
+    width: 220px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    font-size: 1.125em;
+    font-weight: 500;
+    letter-spacing: 2px;
+    color: white;
+    background: var(--kolor1); /*1*/
+    border: 2px solid var(--kolor2); /*2*/
+    box-shadow: 0 8px 0 var(--kolor2); /*2*/
+    transform: skew(-10deg);
+    transition: all .1s ease;
+    filter: drop-shadow(0 15px 20px var(--kolor3)); /*3*/
+    text-transform: uppercase;
+    text-decoration: none;
+    margin-top: 20px;
+}
+
+    .edytuj:hover, .button:focus {
+        letter-spacing: 2px;
+        transform: skew(-10deg) translateY(8px);
+        box-shadow: 0 0 0 var(--kolor3); /*3*/
+        color: white;
+    }
+.delete_det {
+    --kolor1: #ed4747;
+    --kolor2: #cfcfcf;
+    --kolor3: #e0e0e0;
+    cursor: pointer;
+    width: 200px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    font-size: 1.125em;
+    font-weight: 500;
+    letter-spacing: 2px;
+    color: white;
+    background: var(--kolor1); /*1*/
+    border: 2px solid var(--kolor2); /*2*/
+    box-shadow: 0 8px 0 var(--kolor2); /*2*/
+    transform: skew(-10deg);
+    transition: all .1s ease;
+    filter: drop-shadow(0 15px 20px var(--kolor3)); /*3*/
+    text-transform: uppercase;
+    text-decoration: none;
+    margin-top: 20px;
+}
+
+    .delete_det:hover, .button:focus {
+        letter-spacing: 2px;
+        transform: skew(-10deg) translateY(8px);
+        box-shadow: 0 0 0 var(--kolor3); /*3*/
+        color: white;
+    }
+.back_det {
+    --kolor1: #8c8c8c;
+    --kolor2: #cfcfcf;
+    --kolor3: #e0e0e0;
+    cursor: pointer;
+    width: 330px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    font-size: 1.125em;
+    font-weight: 500;
+    letter-spacing: 2px;
+    color: white;
+    background: var(--kolor1); /*1*/
+    border: 2px solid var(--kolor2); /*2*/
+    box-shadow: 0 8px 0 var(--kolor2); /*2*/
+    transform: skew(-10deg);
+    transition: all .1s ease;
+    filter: drop-shadow(0 15px 20px var(--kolor3)); /*3*/
+    text-transform: uppercase;
+    text-decoration: none;
+    margin-top: 20px;
+}
+
+    .back_det:hover, .button:focus {
+        letter-spacing: 2px;
+        transform: skew(-10deg) translateY(8px);
+        box-shadow: 0 0 0 var(--kolor3); /*3*/
+        color: white;
+    }
+.zapiszprodukt {
+    --kolor1: #3ca340; /*zielone*/
+    --kolor2: #89d98c;
+    --kolor3: #b3e8b5;
+    cursor: pointer;
+    width: 220px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    font-size: 1.125em;
+    font-weight: 500;
+    letter-spacing: 2px;
+    color: white;
+    background: var(--kolor1); /*1*/
+    border: 2px solid var(--kolor2); /*2*/
+    box-shadow: 0 8px 0 var(--kolor2); /*2*/
+    transform: skew(-10deg);
+    transition: all .1s ease;
+    filter: drop-shadow(0 15px 20px var(--kolor3)); /*3*/
+    text-transform: uppercase;
+    text-decoration: none;
+    margin-top: 20px;
+}
+
+    .zapiszprodukt:hover, .button:focus {
+        letter-spacing: 2px;
+        transform: skew(-10deg) translateY(8px);
+        box-shadow: 0 0 0 var(--kolor3); /*3*/
+        color: white;
+    }
+.backtolist {
+    --kolor1: #8c8c8c;
+    --kolor2: #cfcfcf;
+    --kolor3: #e0e0e0;
+    cursor: pointer;
+    width: 370px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    font-size: 1.125em;
+    font-weight: 500;
+    letter-spacing: 2px;
+    color: white;
+    background: var(--kolor1); /*1*/
+    border: 2px solid var(--kolor2); /*2*/
+    box-shadow: 0 8px 0 var(--kolor2); /*2*/
+    transform: skew(-10deg);
+    transition: all .1s ease;
+    filter: drop-shadow(0 15px 20px var(--kolor3)); /*3*/
+    text-transform: uppercase;
+    text-decoration: none;
+    margin-top: 20px;
+}
+
+    .backtolist:hover, .button:focus {
+        letter-spacing: 2px;
+        transform: skew(-10deg) translateY(8px);
+        box-shadow: 0 0 0 var(--kolor3); /*3*/
+        color: white;
+    }
+.deleteproduct {
+    --kolor1: #ed4747;
+    --kolor2: #cfcfcf;
+    --kolor3: #e0e0e0;
+    cursor: pointer;
+    width: 200px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    font-size: 1.125em;
+    font-weight: 500;
+    letter-spacing: 2px;
+    color: white;
+    background: var(--kolor1); /*1*/
+    border: 2px solid var(--kolor2); /*2*/
+    box-shadow: 0 8px 0 var(--kolor2); /*2*/
+    transform: skew(-10deg);
+    transition: all .1s ease;
+    filter: drop-shadow(0 15px 20px var(--kolor3)); /*3*/
+    text-transform: uppercase;
+    text-decoration: none;
+    margin-top: 20px;
+}
+
+    .deleteproduct:hover, .button:focus {
+        letter-spacing: 2px;
+        transform: skew(-10deg) translateY(8px);
+        box-shadow: 0 0 0 var(--kolor3); /*3*/
+        color: white;
+    }
+.backtoproduct2 {
+    --kolor1: #8c8c8c;
+    --kolor2: #cfcfcf;
+    --kolor3: #e0e0e0;
+    cursor: pointer;
+    width: 290px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    font-size: 1.125em;
+    font-weight: 500;
+    letter-spacing: 2px;
+    color: white;
+    background: var(--kolor1); /*1*/
+    border: 2px solid var(--kolor2); /*2*/
+    box-shadow: 0 8px 0 var(--kolor2); /*2*/
+    transform: skew(-10deg);
+    transition: all .1s ease;
+    filter: drop-shadow(0 15px 20px var(--kolor3)); /*3*/
+    text-transform: uppercase;
+    text-decoration: none;
+    margin-top: 20px;
+}
+
+.backtoproduct2:hover, .button:focus {
+    letter-spacing: 2px;
+    transform: skew(-10deg) translateY(8px);
+    box-shadow: 0 0 0 var(--kolor3); /*3*/
+    color: white;
+}
+.loginbutton {
+    --kolor1: #3ca340; /*zielone*/
+    --kolor2: #89d98c;
+    --kolor3: #b3e8b5;
+    cursor: pointer;
+    width: 170px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    font-size: 1.125em;
+    font-weight: 500;
+    letter-spacing: 2px;
+    color: white;
+    background: var(--kolor1); /*1*/
+    border: 2px solid var(--kolor2); /*2*/
+    box-shadow: 0 8px 0 var(--kolor2); /*2*/
+    transform: skew(-10deg);
+    transition: all .1s ease;
+    filter: drop-shadow(0 15px 20px var(--kolor3)); /*3*/
+    text-transform: uppercase;
+    text-decoration: none;
+    margin-bottom: 50px;
+}
+
+    .loginbutton:hover, .button:focus {
+        letter-spacing: 2px;
+        transform: skew(-10deg) translateY(8px);
+        box-shadow: 0 0 0 var(--kolor3); /*3*/
+        color: white;
+    }
+.cancelorder {
+    --kolor1: #8c8c8c;
+    --kolor2: #cfcfcf;
+    --kolor3: #e0e0e0;
+    cursor: pointer;
+    width: 120px;
+    height: 60px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    font-size: 1.125em;
+    font-weight: 500;
+    letter-spacing: 2px;
+    color: white;
+    background: var(--kolor1); /*1*/
+    border: 2px solid var(--kolor2); /*2*/
+    box-shadow: 0 8px 0 var(--kolor2); /*2*/
+    transform: skew(-10deg);
+    transition: all .1s ease;
+    filter: drop-shadow(0 15px 20px var(--kolor3)); /*3*/
+    text-transform: uppercase;
+    text-decoration: none;
+    margin-bottom: 10px;
+}
+
+    .cancelorder:hover, .button:focus {
+        letter-spacing: 2px;
+        transform: skew(-10deg) translateY(8px);
+        box-shadow: 0 0 0 var(--kolor3); /*3*/
+        color: white;
+    }
+.detailsorder {
+    --kolor1: #8c8c8c;
+    --kolor2: #cfcfcf;
+    --kolor3: #e0e0e0;
+    cursor: pointer;
+    width: 150px;
+    height: 60px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    font-size: 1.125em;
+    font-weight: 500;
+    letter-spacing: 2px;
+    color: white;
+    background: var(--kolor1); /*1*/
+    border: 2px solid var(--kolor2); /*2*/
+    box-shadow: 0 8px 0 var(--kolor2); /*2*/
+    transform: skew(-10deg);
+    transition: all .1s ease;
+    filter: drop-shadow(0 15px 20px var(--kolor3)); /*3*/
+    text-transform: uppercase;
+    text-decoration: none;
+    margin-bottom: 10px;
+}
+
+    .detailsorder:hover, .button:focus {
+        letter-spacing: 2px;
+        transform: skew(-10deg) translateY(8px);
+        box-shadow: 0 0 0 var(--kolor3); /*3*/
+        color: white;
+    }
+.editorder {
+    --kolor1: #8c8c8c;
+    --kolor2: #cfcfcf;
+    --kolor3: #e0e0e0;
+    cursor: pointer;
+    width: 120px;
+    height: 60px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    font-size: 1.125em;
+    font-weight: 500;
+    letter-spacing: 2px;
+    color: white;
+    background: var(--kolor1); /*1*/
+    border: 2px solid var(--kolor2); /*2*/
+    box-shadow: 0 8px 0 var(--kolor2); /*2*/
+    transform: skew(-10deg);
+    transition: all .1s ease;
+    filter: drop-shadow(0 15px 20px var(--kolor3)); /*3*/
+    text-transform: uppercase;
+    text-decoration: none;
+    margin-bottom: 10px;
+}
+
+    .editorder:hover, .button:focus {
+        letter-spacing: 2px;
+        transform: skew(-10deg) translateY(8px);
+        box-shadow: 0 0 0 var(--kolor3); /*3*/
+        color: white;
+    }
+.deleteorder {
+    --kolor1: #ed4747;
+    --kolor2: #cfcfcf;
+    --kolor3: #e0e0e0;
+    cursor: pointer;
+    width: 90px;
+    height: 60px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    font-size: 1.125em;
+    font-weight: 500;
+    letter-spacing: 2px;
+    color: white;
+    background: var(--kolor1); /*1*/
+    border: 2px solid var(--kolor2); /*2*/
+    box-shadow: 0 8px 0 var(--kolor2); /*2*/
+    transform: skew(-10deg);
+    transition: all .1s ease;
+    filter: drop-shadow(0 15px 20px var(--kolor3)); /*3*/
+    text-transform: uppercase;
+    text-decoration: none;
+    margin-bottom: 10px;
+}
+
+    .deleteorder:hover, .button:focus {
+        letter-spacing: 2px;
+        transform: skew(-10deg) translateY(8px);
+        box-shadow: 0 0 0 var(--kolor3); /*3*/
+        color: white;
+    }
+.editdetails {
+    --kolor1: #3ca340; /*zielone*/
+    --kolor2: #89d98c;
+    --kolor3: #b3e8b5;
+    cursor: pointer;
+    width: 120px;
+    height: 60px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    font-size: 1.125em;
+    font-weight: 500;
+    letter-spacing: 2px;
+    color: white;
+    background: var(--kolor1); /*1*/
+    border: 2px solid var(--kolor2); /*2*/
+    box-shadow: 0 8px 0 var(--kolor2); /*2*/
+    transform: skew(-10deg);
+    transition: all .1s ease;
+    filter: drop-shadow(0 15px 20px var(--kolor3)); /*3*/
+    text-transform: uppercase;
+    text-decoration: none;
+    margin-bottom: 10px;
+}
+
+    .editdetails:hover, .button:focus {
+        letter-spacing: 2px;
+        transform: skew(-10deg) translateY(8px);
+        box-shadow: 0 0 0 var(--kolor3); /*3*/
+        color: white;
+    }
+.backdetails {
+    --kolor1: #8c8c8c;
+    --kolor2: #cfcfcf;
+    --kolor3: #e0e0e0;
+    cursor: pointer;
+    width: 120px;
+    height: 60px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    font-size: 1.125em;
+    font-weight: 500;
+    letter-spacing: 2px;
+    color: white;
+    background: var(--kolor1); /*1*/
+    border: 2px solid var(--kolor2); /*2*/
+    box-shadow: 0 8px 0 var(--kolor2); /*2*/
+    transform: skew(-10deg);
+    transition: all .1s ease;
+    filter: drop-shadow(0 15px 20px var(--kolor3)); /*3*/
+    text-transform: uppercase;
+    text-decoration: none;
+    margin-bottom: 10px;
+}
+
+    .backdetails:hover, .button:focus {
+        letter-spacing: 2px;
+        transform: skew(-10deg) translateY(8px);
+        box-shadow: 0 0 0 var(--kolor3); /*3*/
+        color: white;
+    }
+.zapiszzmiany {
+    --kolor1: #3ca340; /*zielone*/
+    --kolor2: #89d98c;
+    --kolor3: #b3e8b5;
+    cursor: pointer;
+    width: 190px;
+    height: 60px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    font-size: 1.125em;
+    font-weight: 500;
+    letter-spacing: 2px;
+    color: white;
+    background: var(--kolor1); /*1*/
+    border: 2px solid var(--kolor2); /*2*/
+    box-shadow: 0 8px 0 var(--kolor2); /*2*/
+    transform: skew(-10deg);
+    transition: all .1s ease;
+    filter: drop-shadow(0 15px 20px var(--kolor3)); /*3*/
+    text-transform: uppercase;
+    text-decoration: none;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+
+    .zapiszzmiany:hover, .button:focus {
+        letter-spacing: 2px;
+        transform: skew(-10deg) translateY(8px);
+        box-shadow: 0 0 0 var(--kolor3); /*3*/
+        color: white;
+    }
+
+.powrotorder {
+    --kolor1: #8c8c8c;
+    --kolor2: #cfcfcf;
+    --kolor3: #e0e0e0;
+    cursor: pointer;
+    width: 120px;
+    height: 60px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    font-size: 1.125em;
+    font-weight: 500;
+    letter-spacing: 2px;
+    color: white;
+    background: var(--kolor1); /*1*/
+    border: 2px solid var(--kolor2); /*2*/
+    box-shadow: 0 8px 0 var(--kolor2); /*2*/
+    transform: skew(-10deg);
+    transition: all .1s ease;
+    filter: drop-shadow(0 15px 20px var(--kolor3)); /*3*/
+    text-transform: uppercase;
+    text-decoration: none;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+
+    .powrotorder:hover, .button:focus {
+        letter-spacing: 2px;
+        transform: skew(-10deg) translateY(8px);
+        box-shadow: 0 0 0 var(--kolor3); /*3*/
+        color: white;
+    }
+.deletedelete {
+    --kolor1: #ed4747;
+    --kolor2: #cfcfcf;
+    --kolor3: #e0e0e0;
+    cursor: pointer;
+    width: 90px;
+    height: 60px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    font-size: 1.125em;
+    font-weight: 500;
+    letter-spacing: 2px;
+    color: white;
+    background: var(--kolor1); /*1*/
+    border: 2px solid var(--kolor2); /*2*/
+    box-shadow: 0 8px 0 var(--kolor2); /*2*/
+    transform: skew(-10deg);
+    transition: all .1s ease;
+    filter: drop-shadow(0 15px 20px var(--kolor3)); /*3*/
+    text-transform: uppercase;
+    text-decoration: none;
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
+
+    .deletedelete:hover, .button:focus {
+        letter-spacing: 2px;
+        transform: skew(-10deg) translateY(8px);
+        box-shadow: 0 0 0 var(--kolor3); /*3*/
+        color: white;
+    }
+
+.backback {
+    --kolor1: #8c8c8c;
+    --kolor2: #cfcfcf;
+    --kolor3: #e0e0e0;
+    cursor: pointer;
+    width: 120px;
+    height: 60px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    font-size: 1.125em;
+    font-weight: 500;
+    letter-spacing: 2px;
+    color: white;
+    background: var(--kolor1); /*1*/
+    border: 2px solid var(--kolor2); /*2*/
+    box-shadow: 0 8px 0 var(--kolor2); /*2*/
+    transform: skew(-10deg);
+    transition: all .1s ease;
+    filter: drop-shadow(0 15px 20px var(--kolor3)); /*3*/
+    text-transform: uppercase;
+    text-decoration: none;
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
+
+    .backback:hover, .button:focus {
+        letter-spacing: 2px;
+        transform: skew(-10deg) translateY(8px);
+        box-shadow: 0 0 0 var(--kolor3); /*3*/
+        color: white;
+    }
