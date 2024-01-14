@@ -684,3 +684,35 @@ th {
     box-shadow: 0 0 0 var(--kolor3); /*3*/
     color: white;
 }
+.loginbutton {
+    --kolor1: #3ca340; /*zielone*/
+    --kolor2: #89d98c;
+    --kolor3: #b3e8b5;
+    cursor: pointer;
+    width: 170px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    font-size: 1.125em;
+    font-weight: 500;
+    letter-spacing: 2px;
+    color: white;
+    background: var(--kolor1); /*1*/
+    border: 2px solid var(--kolor2); /*2*/
+    box-shadow: 0 8px 0 var(--kolor2); /*2*/
+    transform: skew(-10deg);
+    transition: all .1s ease;
+    filter: drop-shadow(0 15px 20px var(--kolor3)); /*3*/
+    text-transform: uppercase;
+    text-decoration: none;
+    margin-bottom: 50px;
+}
+
+    .loginbutton:hover, .button:focus {
+        letter-spacing: 2px;
+        transform: skew(-10deg) translateY(8px);
+        box-shadow: 0 0 0 var(--kolor3); /*3*/
+        color: white;
+    }
