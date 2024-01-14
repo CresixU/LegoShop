@@ -1,7 +1,7 @@
 
 # Lego Shop
 
-Projekt przedstawia aplikacje do możliwości zamówienia szablonu mozaiki z lego.
+Projekt przedstawia aplikacje do zamówienia szablonu mozaiki z lego.
 
 
 ## Jak pobrać projekt
