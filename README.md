@@ -28,6 +28,12 @@ W aplikacji mogą wystąpić dwa napotkane rodzaje błędów
 
 #### Pierwszy błąd
 Można go naprawić konfigurując odpowiednio plik appsettings.json  (Szczegóły w dokumentacji) \
+NAZWA_TWOJEJ_BAZY - Wklej tutaj nazwę swojej bazy MYSQL oraz w mijesce localhost nazwę serwera, lub zostaw tak jak jest jeśli nazywa się localhost.
+Zazwyczaj trzeba poprawić 3 linijkę, przykładowe poprawne linijki:
+
+    "DefaultConnection": "Server=localhost;Database=NAZWA_TWOJEJ_BAZY;MultipleActiveResultSets=true;TrustServerCertificate=True;Trusted_Connection=True"
+    "DefaultConnection": "Server=localhost\\mssqllocaldb;Database=aspnet-LegoShop-15d72906-114f-4f23-a9fc-aca0233d96ff;Trusted_Connection=True;MultipleActiveResultSets=true"
+
 Różne konfiguracje występują na branchu `Krystian` oraz `Jakub`
 Spróbuj uruchomić projekt ponownie
 
